@@ -1,0 +1,84 @@
+/*colocar a imagem no html e editar ela separadamente bloqueando-a de ser selecionada com o ctrl+a*/
+
+/*background*/
+body {
+    background: #001524 url(Imagens/Trem.png) no-repeat right;
+}
+
+
+/*Estilização primária*/
+#content {
+    margin: 197px 0px 0px 405px;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    font-family: 'Inter', sans-serif;
+    column-count: 3;
+    margin: 88px 0px 0px 275px;
+}
+
+button {
+    background-color: #0398FF;
+    border-radius: 15%;
+    height: 45.13px;
+    border: none;
+    width: 30%;
+}
+
+li {
+    list-style: none; 
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 134%;
+}
+
+h3 {
+    font-size: 25px;
+    line-height: 110.5%;
+}
+
+/*Estilização geral de elementos*/
+.azul-claro {
+    color: #0398FF;
+}
+
+.text-white {
+    color: #FFFFFF;
+}
+
+.blue-elements {
+    color: #001524;
+}
+
+#li-e-aceito {
+    column-count: 2;
+    margin-bottom: 10px;
+}
+
+#escolher-bilhete {
+    margin-right: 44%;
+    column-count: 2;
+}
+
+/*Estilização especifica de elementos*/
+
+.nav-item {
+    margin-left: -250px;
+    margin-right: 250px;
+    column-count: 4;
+}
+
+#termos {
+    margin-left: -730px;
+}
+
+.button-generate-ticket {
+    width: 20%;
+}
