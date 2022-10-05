@@ -18,10 +18,12 @@ header {
 
 button {
     background-color: #0398FF;
-    border-radius: 15%;
+    border-radius: 10%;
     height: 45.13px;
     border: none;
-    width: 30%;
+    text-align: center;
+    line-height: 2.5;
+    padding: 0 20px;
 }
 
 li {
