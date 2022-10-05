@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Port">
-    <meta name="description" content="O jeito simples de ir e vir para onde quiser com os melhores preços"> 
+    <meta name="description" content="O jeito simples de ir e vir para onde quiser com os melhores preços">
 
+    <link rel="stylesheet" href="global.css">
     <title>Port</title>
 </head>
 
@@ -16,13 +17,13 @@
     <!--Cabeçalho-->
     <header>
         <a href="#">
-            <img src="Imagens\logo-site-port.png" width="86" height="40" alt="Logo Site">
+            <img id="icon-logo" src="Imagens\logo-site-port.png" width="86" height="40" alt="Logo Site">
         </a>
 
         <!--Navegação-->
         <nav>
-            <ul>
-                <li role="menubar-item">
+            <ul class="nav-item text-white">
+                <li text-white role="menubar-item">
                     <a href="#home">
                         Página Inicial
                     </a>
@@ -46,55 +47,34 @@
         </nav>
 
         <!--Botão Gerar ID Único-->
-        <button type="button" class="header-button azul-claro">
-            <a href="#">Gerar ID Único</a>
+        <button type="button" class="button-nav blue-elements azul-claro">
+            <a class="blue-element" href="#">Gerar ID Único</a>
         </button>
     </header>
 
-    <!--Textos página principal-->
-    <section id="home">
-        <h1 class="azul-claro">Redescubra o transporte público com a &rarr; PORT ;)</h1>
-        <h3>Gere seu bilhete &darr;</h3>
-        <br>
-        <div id="quadrado-li-e-aceito"></div>
-        <p>Li e estou de acordo com os <strong>Termos de Uso</strong></p>
+    <div id="content">
+        
+        <!--Textos página principal-->
+        <section id="home">
+            <h1 class="azul-claro" id="main-title">Redescubra o transporte público
+                <br>
+                com a &rarr; PORT ;)
+            </h1>
+            <p class="text-white">Gere seu bilhete &darr;</p>
+            <br>
+            <div id="li-e-aceito">
+                <input id="quadrado-li-e-aceito" type="checkbox">
+                <p id="termos" class="text-white">Li e estou de acordo com os <strong>Termos de Uso</strong></p>
+            </div>
 
-        <!--Tipos de bilhetes-->
-        <div class="dropdown">
-            <button class="dropdown-toggle text-blue white-background" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Escolha seu bilhete
-            </button>
-
-            <!--Opções de bilhetes-->
-            <ul class="dropdown-menu text-blue white-background" aria-labelledby="dropdownHomeButton">
-                <li>
-                    <a class="dropdown-item" href="#">Único - R$3,10 | Duração de 40 minutos</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="#">Dublo - R$7,20 | Duração de 2x40 minutos</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="#">7 dias - R$14,39 | Duração de 7 dias</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="#">30 dias - R$35,50 | Duração de 30 dias</a>
-                </li>
-            </ul>
-        </div>
-
-        <!--Botão Gerar-->
-        <button type="button" class="home-action-button azul-claro">
-            <a href="#">Gerar</a>
-        </button>
-    </section>
-
-    <section id="gerar">
-    </section>
-
-    <section id="recarregar">
-    </section>
-
-    <section id="gerenciar">
-    </section>
+            <div id="escolher-bilhete">
+                
+                <!--Botão Gerar-->
+                <button onclick="gerar()" type="button" class="button-generate-ticket blue-elements azul-claro">
+                    <a href="#">Gerar</a>
+                </button>
+                <script src="code.js"></script>
+            </div>
+        </section>
+    </div>
 </body>
