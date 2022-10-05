@@ -1,6 +1,4 @@
-/*colocar a imagem no html e editar ela separadamente bloqueando-a de ser selecionada com o ctrl+a*/
-
-/*background*/
+/*Background*/
 body {
     background: #001524 url(Imagens/Trem.png) no-repeat right;
 }
