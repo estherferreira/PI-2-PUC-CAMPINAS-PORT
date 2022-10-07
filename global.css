@@ -1,12 +1,14 @@
-/*Background*/
+/*colocar a imagem no html e editar ela separadamente bloqueando-a de ser selecionada com o ctrl+a*/
+
+/*background*/
 body {
-    background: #001524 url(Imagens/Trem.png) no-repeat right;
+    background: #001524 url(Imagens/Trem.png) no-repeat right top;
 }
 
 
 /*Estilização primária*/
 #content {
-    margin: 197px 0px 0px 405px;
+    margin: 157px 0px 0px 305px;
     font-family: 'Inter', sans-serif;
 }
 
@@ -14,6 +16,7 @@ header {
     font-family: 'Inter', sans-serif;
     column-count: 3;
     margin: 88px 0px 0px 275px;
+    display: flex;
 }
 
 button {
@@ -27,7 +30,7 @@ button {
 }
 
 li {
-    list-style: none; 
+    list-style: none;
 }
 
 a {
@@ -45,11 +48,11 @@ h3 {
 }
 
 /*Estilização geral de elementos*/
-.azul-claro {
+.light-blue-elements {
     color: #0398FF;
 }
 
-.text-white {
+.white-elements {
     color: #FFFFFF;
 }
 
@@ -57,28 +60,29 @@ h3 {
     color: #001524;
 }
 
-#li-e-aceito {
-    column-count: 2;
-    margin-bottom: 10px;
+/*Estilização especifica de elementos*/
+
+/*checkbox*/
+.d-flex {
+    display: flex;
+    position: absolute;
 }
 
-#escolher-bilhete {
+#choose-ticket {
+    margin-top: 20px;
     margin-right: 44%;
     column-count: 2;
 }
 
-/*Estilização especifica de elementos*/
+.nav-menu {
+    margin-left: 300px;
+    margin-right: 300px;
+    column-count: 4;
+    align-items: center;
+}
 
 .nav-item {
-    margin-left: -250px;
-    margin-right: 250px;
-    column-count: 4;
-}
-
-#termos {
-    margin-left: -730px;
-}
-
-.button-generate-ticket {
-    width: 20%;
+    padding: 0px 15px;
+    font-style: normal;
+    font-weight: 500;
 }
