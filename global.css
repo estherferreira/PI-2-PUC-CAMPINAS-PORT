@@ -8,20 +8,20 @@ body {
 
 /*Estilização primária*/
 #content {
-    margin: 157px 0px 0px 305px;
+    margin: 140px 0px 0px 305px;
     font-family: 'Inter', sans-serif;
 }
 
 header {
     font-family: 'Inter', sans-serif;
     column-count: 3;
-    margin: 88px 0px 0px 275px;
+    margin: 88px 0px 0px 250px;
     display: flex;
 }
 
 button {
     background-color: #0398FF;
-    border-radius: 10%;
+    border-radius: 25px;
     height: 45.13px;
     border: none;
     text-align: center;
