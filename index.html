@@ -10,36 +10,38 @@
     <meta name="description" content="O jeito simples de ir e vir para onde quiser com os melhores preços">
 
     <link rel="stylesheet" href="global.css">
+
     <title>Port</title>
+
 </head>
 
 <body>
     <!--Cabeçalho-->
     <header>
         <a href="#">
-            <img id="icon-logo" src="Imagens\logo-site-port.png" width="86" height="40" alt="Logo Site">
+            <img id="icon-logo" src="Imagens\logo-site-port.png" width="86" height="40" alt="Logo">
         </a>
 
         <!--Navegação-->
         <nav>
-            <ul class="nav-item text-white">
-                <li text-white role="menubar-item">
-                    <a href="#home">
+            <ul class="nav-menu">
+                <li class="nav-item" role="menubar-item">
+                    <a class="white-elements" href="#home">
                         Página Inicial
                     </a>
                 </li>
-                <li role="menubar-item">
-                    <a href="#gerar">
+                <li class="nav-item" role="menubar-item">
+                    <a class="white-elements" href="#gerar">
                         Gerar bilhete
                     </a>
                 </li>
-                <li role="menubar-item">
-                    <a href="#recarregar">
+                <li class="nav-item" role="menubar-item">
+                    <a class="white-elements" href="#recarregar">
                         Recarregar
                     </a>
                 </li>
-                <li role="menubar-item">
-                    <a href="#gerenciar">
+                <li class="nav-item" role="menubar-item">
+                    <a class="white-elements" href="#gerenciar">
                         Gerenciar
                     </a>
                 </li>
@@ -47,31 +49,30 @@
         </nav>
 
         <!--Botão Gerar ID Único-->
-        <button type="button" class="button-nav blue-elements azul-claro">
-            <a class="blue-element" href="#">Gerar ID Único</a>
+        <button type="button" class="light-blue-elements">
+            <a class="blue-elements" href="#">Gerar ID Único</a>
         </button>
     </header>
 
     <div id="content">
-        
+
         <!--Textos página principal-->
         <section id="home">
-            <h1 class="azul-claro" id="main-title">Redescubra o transporte público
+            <h1 class="light-blue-elements" id="main-title">Redescubra o transporte público
                 <br>
                 com a &rarr; PORT ;)
             </h1>
-            <p class="text-white">Gere seu bilhete &darr;</p>
+            <p class="white-elements">Gere seu bilhete &darr;</p>
             <br>
-            <div id="li-e-aceito">
-                <input id="quadrado-li-e-aceito" type="checkbox">
-                <p id="termos" class="text-white">Li e estou de acordo com os <strong>Termos de Uso</strong></p>
+            <div id="d-flex">
+                <input type="checkbox">
+                <label class="white-elements container">Li e estou de acordo com os <strong>Termos de Uso</strong></label>
             </div>
 
-            <div id="escolher-bilhete">
-                
-                <!--Botão Gerar-->
-                <button onclick="gerar()" type="button" class="button-generate-ticket blue-elements azul-claro">
-                    <a href="#">Gerar</a>
+            <!--Botão Gerar-->
+            <div id="choose-ticket">
+                <button onclick="gerar()" type="button" class="light-blue-elements">
+                    <a class="blue-elements" href="#">Gerar</a>
                 </button>
                 <script src="code.js"></script>
             </div>
