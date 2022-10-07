@@ -62,11 +62,36 @@ h3 {
 
 /*Estilização especifica de elementos*/
 
-/*checkbox*/
-.d-flex {
-    display: flex;
-    position: absolute;
+/*checkbox personalizada*/
+.custom-checkbox input {
+    display: none;
 }
+
+/*caixa de seleção no estado padrão: desmarcada*/
+.custom-checkbox input + label:before {
+content: '';
+width: 15px;
+height: 15px;
+border-radius: 5px;
+background-color: transparent;
+border: 1px solid #FFFFFF;
+display: inline-block;
+vertical-align: middle;
+margin-right: 7px;
+margin-bottom: 2.5px;
+}
+
+/*caixa de seleção no estado: verificada*/
+.custom-checkbox input:checked + label:before {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+    border: 1px solid #FFFFFF;
+    }
+
 
 #choose-ticket {
     margin-top: 20px;
