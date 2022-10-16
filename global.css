@@ -1,5 +1,3 @@
-/*colocar a imagem no html e editar ela separadamente bloqueando-a de ser selecionada com o ctrl+a*/
-
 /*background*/
 body {
     background: #001524 url(Imagens/Trem.png) no-repeat right top;
@@ -27,6 +25,7 @@ button {
     text-align: center;
     line-height: 2.5;
     padding: 0 20px;
+    cursor: pointer;
 }
 
 li {
@@ -47,6 +46,7 @@ h3 {
     line-height: 110.5%;
 }
 
+
 /*Estilização geral de elementos*/
 .light-blue-elements {
     color: #0398FF;
@@ -60,7 +60,88 @@ h3 {
     color: #001524;
 }
 
+
 /*Estilização especifica de elementos*/
+.checkbox-label {
+    line-height: 15px;
+    height: 15px;
+    width: 15px;
+    position: relative;
+    margin-right: 25px;
+    cursor: pointer;
+    clear: both;
+    display: inline
+}
+
+.checkbox-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-label .checkbox-custom {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    border: 2px solid #FFFFFF;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    -webkit-transform: rotate(0deg) scale(1);
+    -ms-transform: rotate(0deg) scale(1);
+    transform: rotate(0deg) scale(1);
+    opacity:1;
+    border: 2px solid #FFFFFF;
+}
+
+
+.checkbox-label .checkbox-custom::after {
+    position: absolute;
+    content: "";
+    left: 12px;
+    top: 12px;
+    height: 0px;
+    width: 0px;
+    border-radius: 5px;
+    border: solid #009BFF;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(0deg) scale(0);
+    -ms-transform: rotate(0deg) scale(0);
+    transform: rotate(0deg) scale(0);
+    opacity:1;
+    transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity:1;
+  left: 4.5px;
+  top: 2px;
+  /*Icone de de certo*/
+  width: 4px;
+  height: 7px;
+  border: solid #009BFF;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
 
 /*checkbox personalizada*/
 .custom-checkbox input {
@@ -92,11 +173,13 @@ margin-bottom: 2.5px;
     border: 1px solid #FFFFFF;
     }
 
-
-#choose-ticket {
+#chose-ticket {
     margin-top: 20px;
-    margin-right: 44%;
-    column-count: 2;
+}
+
+#chose-ticket button:disabled
+{
+    cursor: not-allowed;
 }
 
 .nav-menu {
