@@ -7,7 +7,7 @@ function createRandomNumber() {
 function getRandomNumber(){
     let visor = document.getElementById('numrandomid');
     let numberrand = createRandomNumber();
-   visor.innerHTML = 'O número do seu Bilhete é : '+ numberrand;
+   visor.innerHTML = 'Seu bilhete: '+ numberrand;
 }
 //Verifica se a checkbox está marcada e permite que usuário gere o código do seu bilhete caso esteja
 function toggleButton() {
