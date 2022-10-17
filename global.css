@@ -219,3 +219,10 @@ h1 {
     margin-top: 2rem;
     font-size: 1.1rem;
 }
+
+.description {
+    margin-top: 1rem;
+    line-height: 1.5rem;
+    width: 28rem;
+    font-size: 0.96rem;
+}
