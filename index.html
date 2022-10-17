@@ -66,11 +66,10 @@
 
         <!--Textos página principal-->
         <section id="home">
-            <h1 class="light-blue-elements" id="main-title">Redescubra o transporte público
-                <br>
-                com a &rarr; PORT ;)
+            <h1 class="light-blue-elements" id="main-title">Redescubra o transporte público com a &rarr; PORT ;)
             </h1>
             <p class="white-elements text-get"><strong>Gere seu bilhete &darr;</strong></p>
+            <p class="white-elements description">Aceite os termos de uso, gere seu código, faça a recarga, ative e pronto! Além disso, ainda pode gerenciar o status dos seus bilhetes, tudo em um só lugar :)</p>
             <br>
 
 
@@ -87,7 +86,7 @@
 
             <!--Botões gerar e código do bilhete-->
             <div id="chose-ticket">
-                <button id="generate" name="generate" onclick="getRandomNumber()" type="button"
+                <button id="generate" class="date" name="generate" onclick="getRandomNumber(), saveDateAndTime()" type="button"
                     class="light-blue-elements" disabled="true">
                     <a class="blue-elements">Gerar</a>
                 </button>
