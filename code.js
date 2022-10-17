@@ -4,7 +4,7 @@ function createRandomNumber() {
     return randomNumber;
 }
 
-//função para exibir o codigo
+//Exibe o código do bilhete para o usuário
 function getRandomNumber() {
     let visor = document.getElementById('numrandomid');
     let numberrand = createRandomNumber();
@@ -24,4 +24,10 @@ function toggleButton() {
         return
     }
     document.querySelector('#generate').disabled = true;
+}
+
+//Salva a data e a hora que o usuário clicou no botão gerar
+function saveDateAndTime() {
+    const dateAndHour = document.querySelector('.date');
+    const date = console.log(Date());
 }
