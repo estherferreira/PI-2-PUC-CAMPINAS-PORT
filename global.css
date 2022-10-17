@@ -1,20 +1,23 @@
 /*background*/
 body {
-    background: #001524 url(Imagens/Trem.png) no-repeat right top;
+    background: #001524 url(Imagens/Trem.png) no-repeat left 100% top;    
 }
 
 
 /*Estilização primária*/
 #content {
-    margin: 140px 0px 0px 305px;
     font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    margin: 8rem 12.5rem 0;
 }
 
 header {
     font-family: 'Inter', sans-serif;
-    column-count: 3;
-    margin: 88px 0px 0px 250px;
+    margin: 4rem 10rem;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 button {
@@ -37,13 +40,9 @@ a {
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 134%;
-}
-
-h3 {
-    font-size: 25px;
-    line-height: 110.5%;
+    font-size: 2.4rem;
+    /*line-height: 134%;*/
+    margin-bottom: 1rem;
 }
 
 
@@ -53,15 +52,22 @@ h3 {
 }
 
 .white-elements {
-    color: #FFFFFF;
+    color: #f7f7f7;
 }
 
 .blue-elements {
     color: #001524;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
 }
 
 
 /*Estilização especifica de elementos*/
+
+#accept{
+    margin-top: 20px;
+}
+
 .checkbox-label {
     line-height: 15px;
     height: 15px;
@@ -95,13 +101,13 @@ h3 {
     border: 2px solid #FFFFFF;
 }
 
-.checkbox-label input:checked ~ .checkbox-custom {
+.checkbox-label input:checked~.checkbox-custom {
     background-color: #FFFFFF;
     border-radius: 5px;
     -webkit-transform: rotate(0deg) scale(1);
     -ms-transform: rotate(0deg) scale(1);
     transform: rotate(0deg) scale(1);
-    opacity:1;
+    opacity: 1;
     border: 2px solid #FFFFFF;
 }
 
@@ -119,7 +125,7 @@ h3 {
     -webkit-transform: rotate(0deg) scale(0);
     -ms-transform: rotate(0deg) scale(0);
     transform: rotate(0deg) scale(0);
-    opacity:1;
+    opacity: 1;
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
@@ -127,20 +133,20 @@ h3 {
     -o-transition: all 0.3s ease-out;
 }
 
-.checkbox-label input:checked ~ .checkbox-custom::after {
-  -webkit-transform: rotate(45deg) scale(1);
-  -ms-transform: rotate(45deg) scale(1);
-  transform: rotate(45deg) scale(1);
-  opacity:1;
-  left: 4.5px;
-  top: 2px;
-  /*Icone de de certo*/
-  width: 4px;
-  height: 7px;
-  border: solid #009BFF;
-  border-width: 0 2px 2px 0;
-  background-color: transparent;
-  border-radius: 0;
+.checkbox-label input:checked~.checkbox-custom::after {
+    -webkit-transform: rotate(45deg) scale(1);
+    -ms-transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+    left: 4.5px;
+    top: 2px;
+    /*Icone de de certo*/
+    width: 4px;
+    height: 7px;
+    border: solid #009BFF;
+    border-width: 0 2px 2px 0;
+    background-color: transparent;
+    border-radius: 0;
 }
 
 /*checkbox personalizada*/
@@ -149,21 +155,21 @@ h3 {
 }
 
 /*caixa de seleção no estado padrão: desmarcada*/
-.custom-checkbox input + label:before {
-content: '';
-width: 15px;
-height: 15px;
-border-radius: 5px;
-background-color: transparent;
-border: 1px solid #FFFFFF;
-display: inline-block;
-vertical-align: middle;
-margin-right: 7px;
-margin-bottom: 2.5px;
+.custom-checkbox input+label:before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 7px;
+    margin-bottom: 2.5px;
 }
 
 /*caixa de seleção no estado: verificada*/
-.custom-checkbox input:checked + label:before {
+.custom-checkbox input:checked+label:before {
     background-color: #FFFFFF;
     border-radius: 5px;
     -webkit-transform: rotate(0deg) scale(1);
@@ -171,30 +177,45 @@ margin-bottom: 2.5px;
     transform: rotate(0deg) scale(1);
     opacity: 1;
     border: 1px solid #FFFFFF;
-    }
-
-#chose-ticket {
-    margin-top: 20px;
-}
-
-#chose-ticket button:disabled
-{
-    cursor: not-allowed;
 }
 
 .nav-menu {
-    margin-left: 300px;
-    margin-right: 300px;
-    column-count: 4;
-    align-items: center;
+    display: flex;
 }
 
 .nav-item {
     padding: 0px 15px;
+    align-items: center;
     font-style: normal;
     font-weight: 500;
 }
-/* Exibição do Numero do bilhete*/
-.numberandom{
-    color: #FFFFFF;
+
+#chose-ticket {
+    vertical-align: middle;
+    column-count: 2;
+    margin-top: 30px;
+    align-items: center;
+    margin-right: 10px;
+    display: flex;
+}
+
+#chose-ticket button:disabled {
+    cursor: not-allowed;
+}
+
+.numberandom {
+    font-family: 'Inter', sans-serif;
+    background-color: transparent;
+    border: 1px dashed #FFFFFF;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+#home {
+    width: 38rem;
+}
+
+.text-get {
+    margin-top: 2rem;
+    font-size: 1.1rem;
 }
