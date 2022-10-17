@@ -11,13 +11,16 @@
     <meta name="author" content="Port">
     <meta name="description" content="O jeito simples de ir e vir para onde quiser com os melhores preços">
 
+    <!--Conexão CSS-->
     <link rel="stylesheet" href="global.css">
-    <link rel="icon" type="image/x-icon" href="Imagens/favicon2-port.ico">
+
+    <!--Favicon-->
+    <link rel="icon" type="image/x-icon" href="Imagens/favicon-port.ico">
 
     <title>Port</title>
 
+    <!--Conexão JavaScript-->
     <script src="./code.js"></script>
-
 </head>
 
 <body>
@@ -42,7 +45,7 @@
                 </li>
                 <li class="nav-item" role="menubar-item">
                     <a class="white-elements" href="#ativar">
-                        Ativar
+                        Ativar Bilhete
                     </a>
                 </li>
                 <li class="nav-item" role="menubar-item">
@@ -67,27 +70,28 @@
                 <br>
                 com a &rarr; PORT ;)
             </h1>
-            <p class="white-elements">Gere seu bilhete &darr;</p>
+            <p class="white-elements text-get"><strong>Gere seu bilhete &darr;</strong></p>
             <br>
 
 
             <!--Checkbox-->
-            <div>
+            <div id="accept">
                 <label class="checkbox-label">
                     <input type="checkbox" name="checkbox" id="checkbox" onchange="toggleButton()">
                     <span class="checkbox-custom rectangular"></span>
                 </label>
-                <label for="checkbox" class="text white-elements">Li e estou de acordo com os <strong>Termos de
+                <label for="checkbox" class="white-elements">Li e estou de acordo com os <strong>Termos de
                         Uso</strong>
                 </label>
             </div>
 
-            <!--Botão Gerar-->
+            <!--Botões gerar e código do bilhete-->
             <div id="chose-ticket">
-                <button id="generate" name="generate" onclick="getRandomNumber()" type="button" class="light-blue-elements" disabled="true">
+                <button id="generate" name="generate" onclick="getRandomNumber()" type="button"
+                    class="light-blue-elements" disabled="true">
                     <a class="blue-elements">Gerar</a>
                 </button>
-                <p class="numberandom"name="numberandom" id="numrandomid"> </p>
+                <div id="numrandomid"></div>
             </div>
         </section>
     </div>
