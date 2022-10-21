@@ -1,6 +1,12 @@
 //Gera um número aleatório de 6 dígitos
 function createRandomNumber() {
     const randomNumber = (Math.random() * (1000000 - 100000) + 100000).toFixed(0);
+    var xhr = new XMLHttpRequest();             
+    xhr.open("POST", "http://localhost:8080/"/*+randomnumber*/, true);             
+    xhr.setRequestHeader('Content-Type', 'application/json');             
+    xhr.send(JSON.stringify({                 
+        id:randomNumber,             
+    }));
     return randomNumber;
 }
 
