@@ -1,0 +1,58 @@
+body {
+    background-color: #ffffff;
+}
+
+/*Estilização primária*/
+#content {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    align-items: center;
+    margin: 8rem 10.1rem 0;
+    line-height: 1.5rem;
+}
+
+header {
+    font-family: 'Inter', sans-serif;
+    margin: 4rem 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*Estilização geral*/
+.color-text {
+    color: #000000;
+}
+
+#home {
+    width: 38rem;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-item {
+    padding: 0px 15px;
+    align-items: center;
+    font-style: normal;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.terms {
+    margin-top: 2rem;
+}
