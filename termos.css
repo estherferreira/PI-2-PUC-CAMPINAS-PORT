@@ -9,6 +9,7 @@ body {
     align-items: center;
     margin: 8rem 10.1rem 0;
     line-height: 1.5rem;
+    width: 50rem
 }
 
 header {
@@ -27,14 +28,14 @@ a {
     text-decoration: none;
 }
 
+h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
 
 /*Estilização geral*/
 .color-text {
     color: #000000;
-}
-
-#home {
-    width: 38rem;
 }
 
 .nav-menu {
@@ -46,11 +47,6 @@ a {
     align-items: center;
     font-style: normal;
     font-weight: 500;
-}
-
-h2 {
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
 }
 
 .terms {
