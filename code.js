@@ -1,8 +1,8 @@
 //Gera um número aleatório de 6 dígitos
 function createRandomNumber() {
     const randomNumber = (Math.random() * (1000000 - 100000) + 100000).toFixed(0);
-    var xhr = new XMLHttpRequest();             
-    xhr.open("POST", "http://localhost:8080/"/*+randomnumber*/, true);             
+    var xhr = new XMLHttpRequest();    //aqui é passado para o servidor o numero do bilhete gerado          
+    xhr.open("POST", "http://localhost:8080/", true);             
     xhr.setRequestHeader('Content-Type', 'application/json');             
     xhr.send(JSON.stringify({                 
         id:randomNumber,             
