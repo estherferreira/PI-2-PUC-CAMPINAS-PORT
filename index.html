@@ -22,6 +22,8 @@
     <!--Conexão JavaScript-->
     <script src="./code.js"></script>
 
+    <!--Conexão Axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
 </head>
 
@@ -83,7 +85,7 @@
 
             <!--Botões gerar e código do bilhete-->
             <div id="chose-ticket">
-                <button id="generate" class="date" name="generate" onclick="getRandomNumber(), saveDateAndTime()" type="button"
+                <button id="generate" class="date" name="generate" onclick="cadastraBilhete()" type="button"
                     class="light-blue-elements" disabled="true">
                     <a class="blue-elements">Gerar</a>
                 </button>
