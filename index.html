@@ -19,9 +19,6 @@
 
     <title>Port</title>
 
-    <!--Conexão JavaScript-->
-    <script src="./code.js"></script>
-
     <!--Conexão Axios-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
@@ -29,48 +26,51 @@
 
 <body>
     <!--Cabeçalho-->
-    <header>
-        <a href="#">
-            <img id="icon-logo" src="Imagens\logo-site-port.png" width="86" height="40" alt="Logo">
-        </a>
+    <div class="heroContainer">
+        <header class="headerContainer">
+            <div class="headerContent">
+                <a href="#">
+                    <img id="icon-logo" src="Imagens\logo-site-port.png" width="86" height="40" alt="Logo">
+                </a>
 
-        <!--Navegação-->
-        <nav>
-            <ul class="nav-menu">
-                <li class="nav-item" role="menubar-item">
-                    <a class="white-elements" href="#home">
-                        Página Inicial
-                    </a>
-                </li>
-                <li class="nav-item" role="menubar-item">
-                    <a class="white-elements" href="#recarregar">
-                        Recarregar
-                    </a>
-                </li>
-                <li class="nav-item" role="menubar-item">
-                    <a class="white-elements" href="#ativar">
-                        Ativar Bilhete
-                    </a>
-                </li>
-                <li class="nav-item" role="menubar-item">
-                    <a class="white-elements" href="#gerenciar">
-                        Gerenciar
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <div id="content">
+                <!--Navegação-->
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item" role="menubar-item">
+                            <a class="white-elements" href="#home">
+                                Página Inicial
+                            </a>
+                        </li>
+                        <li class="nav-item" role="menubar-item">
+                            <a class="white-elements" href="#recharge">
+                                Recarregar
+                            </a>
+                        </li>
+                        <li class="nav-item" role="menubar-item">
+                            <a class="white-elements" href="#activate">
+                                Ativar Bilhete
+                            </a>
+                        </li>
+                        <li class="nav-item" role="menubar-item">
+                            <a class="white-elements" href="#manage">
+                                Gerenciar
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
         <!--Textos página principal-->
         <section id="home">
-            <h1 class="light-blue-elements" id="main-title">Redescubra o transporte público com a &rarr; PORT ;)
-            </h1>
-            <p class="white-elements text-get"><strong>Gere seu bilhete &darr;</strong></p>
-            <p class="white-elements description">Aceite os termos, gere seu código, recarregue, ative e pronto! Além disso, ainda pode gerenciar o status dos seus bilhetes :)</p>
+            <span class="main-test light-blue-elements">Redescubra o transporte público com a &rarr; PORT ;)
+            </span>
+            <p class="white-elements text-get"><strong>Gere seu bilhete &darr;</strong>
+            </p>
+            <p class="white-elements description">Aceite os termos, gere seu código, recarregue, ative e pronto! Além
+                disso, ainda pode gerenciar o status dos seus bilhetes :)
+            </p>
             <br>
-
 
             <!--Checkbox-->
             <div id="accept">
@@ -78,19 +78,146 @@
                     <input type="checkbox" name="checkbox" id="checkbox" onchange="toggleButton()">
                     <span class="checkbox-custom rectangular"></span>
                 </label>
-                <label for="checkbox" class="white-elements">Li e estou de acordo com os <strong><a class="white-elements" href="termos.html">Termos de
-                    Uso</a></strong>
+                <label for="checkbox" class="white-elements">Li e estou de acordo com os <strong><a
+                            class="white-elements" href="termos.html">Termos de
+                            Uso</a></strong>
                 </label>
             </div>
 
             <!--Botões gerar e código do bilhete-->
             <div id="chose-ticket">
-                <button id="generate" class="date" name="generate" onclick="cadastraBilhete()" type="button"
-                    class="light-blue-elements" disabled="true">
+                <button id="generate" class="date" name="generate" onclick="getRandomNumber(), saveDateAndTime()"
+                    type="button" class="light-blue-elements" disabled="true">
                     <a class="blue-elements">Gerar</a>
                 </button>
                 <div id="numrandomid"></div>
             </div>
         </section>
     </div>
+    <div class="rechargeContainer">
+        <section id="recharge">
+            <span class="main-test blue-elements">Recarregue seu bilhete
+            </span>
+            <p class="text-recharge blue-elements">Os Bilhetes Urbanos PORT possuem um código único. Você escolhe a
+                modalidade que
+                deseja recarregar e a partir da ativação ele começa a contar o tempo.
+            </p>
+
+            <!--Tipos de bilhetes-->
+            <div class="rulesContainer">
+                <div class="rulesContent">
+                    <div class="icon-and-text">
+                        <div class="icon-timer">
+                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
+                        </div>
+
+                        <div class="text">
+                            <span class="title-tickets">
+                                Bilhete Único
+                            </span>
+                            <p class="description-ticket">
+                                Duração de<br>40 minutos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rulesContent">
+                    <div class="icon-and-text">
+                        <div class="icon-timer">
+                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
+                        </div>
+
+                        <div class="text">
+                            <span class="title-tickets">
+                                Bilhete Duplo
+                            </span>
+                            <p class="description-ticket">
+                                Duração 2 períodos<br>de 40 minutos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rulesContent">
+                    <div class="icon-and-text">
+                        <div class="icon-timer">
+                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
+                        </div>
+
+                        <div class="text">
+                            <span class="title-tickets">
+                                Bilhete 7 dias
+                            </span>
+                            <p class="description-ticket">
+                                Duração de<br>7 dias
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rulesContent">
+                    <div class="icon-and-text">
+                        <div class="icon-timer">
+                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
+                        </div>
+
+                        <div class="text">
+                            <span class="title-tickets">
+                                Bilhete 30 dias
+                            </span>
+                            <p class="description-ticket">
+                                Duração de<br>30 dias
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Seletor de bilhetes-->
+            <div id="tickets">
+                <!--Campo para digitar o código do bilhete-->
+                <input class="code-field" type="text" placeholder="Código do bilhete">
+
+                <!--Escolher modalidade-->
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="selected">Escolher modalidade</span>
+                        <div class="caret"></div>
+                    </div>
+
+                    <ul class="menu">
+                        <li>Bilhete Único</li>
+                        <li>Bilhete Duplo</li>
+                        <li>Bilhete 7 dias</li>
+                        <li>Bilhete 30 dias</li>
+                    </ul>
+                </div>
+
+                <!--Botões gerar e código do bilhete-->
+                <button type="button" class="button-blue" disabled="true">
+                    <a class="white-elements">
+                        Comprar
+                    </a>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p class="white-elements">© 2022 PORT | Todos os direitos reservados</p>
+    </footer>
+
+    <!--
+    <div class="activateContainer">
+        <section id="activate"></section>
+    </div>
+
+    <div class="manageContainer">
+        <section id="manage"></section>
+    </div></div>
+    -->
+
+    <script src="./code.js"></script>
+
 </body>
