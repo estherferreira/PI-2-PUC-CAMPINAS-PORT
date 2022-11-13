@@ -1,4 +1,4 @@
-//Gera um numero aleatorio para o Bilhete
+//Gera um número aleatorio para o Bilhete
 function createRandomNumber() {
     const randomNumber = (Math.random() * (1000000 - 100000) + 100000).toFixed(0);
     return randomNumber;
