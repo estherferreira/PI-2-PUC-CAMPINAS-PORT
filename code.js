@@ -10,7 +10,6 @@ function showId() {
     let numberrand = createRandomNumber();
     visor.innerHTML = `<button type="button" class="white-elements numberandom" name="numberandom" id="numrandomid">Seu bilhete: ${numberrand}
     </button>`
-    return numberrand;
 }
 
 //Verifica se a checkbox está marcada e permite que usuário gere o código do seu bilhete caso esteja
