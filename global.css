@@ -226,7 +226,7 @@ header {
     cursor: not-allowed;
 }
 
-.showId {
+.numberrand {
     background-color: transparent;
     border: 0.06rem dashed #FFFFFF;
     font-size: 0.87rem;
