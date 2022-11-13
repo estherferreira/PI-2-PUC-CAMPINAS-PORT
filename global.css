@@ -226,7 +226,7 @@ header {
     cursor: not-allowed;
 }
 
-.numberandom {
+.showId {
     background-color: transparent;
     border: 0.06rem dashed #FFFFFF;
     font-size: 0.87rem;
