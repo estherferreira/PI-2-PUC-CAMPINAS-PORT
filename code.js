@@ -69,3 +69,23 @@ dropdowns.forEach(dropdown => {
     });
   });
 });
+
+//Ativa botão "Comprar" e mostra a mensagem "Compra efetuada!"
+function showMessage() {
+  let message = document.getElementById('sucessMessage');
+  message.innerHTML = `<p id="sucessMessage" class="sucess">Compra efetuada!</p>`
+}
+
+function buyButton() {
+  const text = document.querySelector('#text').value;
+
+if (text) {
+  if (dropdowns)
+      document.querySelector('#buyticket').disabled = false;
+      if (buyticket == false) {
+        showMessage()
+      }
+      return
+    }
+  document.querySelector('#buyticket').disabled = true;
+}
