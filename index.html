@@ -177,30 +177,35 @@
             <!--Seletor de bilhetes-->
             <div id="tickets">
                 <!--Campo para digitar o código do bilhete-->
-                <input class="code-field" type="text" placeholder="Código do bilhete">
+                <input class="code-field" type="text" name="text" id="text" placeholder="Código do bilhete"
+                    onchange="buyButton()">
 
                 <!--Escolher modalidade-->
-                <div class="dropdown">
+                <div class="dropdown" name="dropdown" id="dropdown" onchange="buyButton()">
                     <div class="select">
                         <span class="selected">Escolher modalidade</span>
                         <div class="caret"></div>
                     </div>
 
                     <ul class="menu">
-                        <li>Bilhete Único</li>
-                        <li>Bilhete Duplo</li>
-                        <li>Bilhete 7 dias</li>
-                        <li>Bilhete 30 dias</li>
+                        <li>Bilhete Único - R$3,10</li>
+                        <li>Bilhete Duplo - R$7,20</li>
+                        <li>Bilhete 7 dias - R$14,39</li>
+                        <li>Bilhete 30 dias - R$35,50</li>
                     </ul>
                 </div>
 
                 <!--Botões gerar e código do bilhete-->
-                <button type="button" class="button-blue" disabled="true">
-                    <a class="white-elements">
-                        Comprar
-                    </a>
-                </button>
+                <div id="buy">
+                    <button id="buyticket" name="buyticket" type="button" class="button-blue" disabled="true"
+                        onclick="showMessage()">
+                        <a class="white-elements">
+                            Comprar
+                        </a>
+                    </button>
+                </div>
             </div>
+            <div id="sucessMessage"></div>
         </section>
     </div>
 
