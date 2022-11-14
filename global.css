@@ -274,7 +274,7 @@ header {
     height: 6.5rem;
     padding: 0 1rem;
     display: flex;
-    
+
 }
 
 .icon-and-text {
@@ -332,14 +332,18 @@ header {
     display: -webkit-inline-box;
 }
 
+::placeholder {
+    font-size: 15px;
+}
+
 .dropdown {
     width: 300px;
     position: relative;
     text-align: left;
     font-size: 15px;
-  }
-  
-  .select {
+}
+
+.select {
     border: 1px solid #001524;
     display: flex;
     height: 2.82rem;
@@ -350,31 +354,31 @@ header {
     align-items: center;
     cursor: pointer;
     justify-content: space-between;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     margin: 0 0.7rem;
     color: #001524;
     padding: 1em;
     cursor: pointer;
-  }
+}
 
-  .select-clicked {
+.select-clicked {
     border: 2px #001524 solid;
-  }
-  
-  .caret {
+}
+
+.caret {
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-top: 6px solid #001524;
     transition: 0.3s;
-  }
-  
-  .caret-rotate {
-    transform: rotate(180deg);
-  }
+}
 
-  .menu {
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
     list-style: none;
     padding: 0.9em 1.35em;
     background: #fff;
@@ -391,30 +395,42 @@ header {
     display: none;
     transition: 0.2s;
     z-index: 1;
-  }
-  
-  .menu li {
+}
+
+.menu li {
     padding: 0.7em 0.5em;
     margin: 0.3em 0;
     border-radius: 0.5em;
     cursor: pointer;
-  }
-  
-  .menu li:hover {
-    background: #F2F2F2;
-  }
-  
-  .active {
-    background: #F2F2F2;
-  }
-  
-  .menu-open {
-      display: block;
-      opacity: 1;
-  }
+}
 
-  .button-blue {
+.menu li:hover {
+    background: #F2F2F2;
+}
+
+.active {
+    background: #F2F2F2;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+.button-blue {
     background-color: #001524;
+}
+
+#buy button:disabled {
+    cursor: not-allowed;
+}
+
+.sucess {
+    color: #229A00;
+    margin: 0.9rem 0rem;
+    display: -webkit-inline-box;
+    font-size: 15px;
+    width: 35.5rem;
 }
 
 footer {
@@ -422,8 +438,4 @@ footer {
     background-color: #001524;
     height: 5rem;
     padding: 2rem 12.5rem 0;
-}
-
-::placeholder {
-    font-size: 15px;
 }
