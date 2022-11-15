@@ -76,16 +76,14 @@ function showMessage() {
   message.innerHTML = `<p id="sucessMessage" class="sucess">Compra efetuada!</p>`
 }
 
-function buyButton() {
-  const text = document.querySelector('#text').value;
+function handleChange() {
+  const ticketCode = document.querySelector('#ticketCodeField').value;
+  const ticketType = document.querySelector('.selected').innerText;
 
-if (text) {
-  if (dropdowns)
-      document.querySelector('#buyticket').disabled = false;
-      if (buyticket == false) {
-        showMessage()
-      }
-      return
-    }
-  document.querySelector('#buyticket').disabled = true;
+  if (ticketCode && ticketType != "Escolher modalidade") {
+    document.querySelector('#buyTicketButton').disabled = false;
+  }
+  else {
+    document.querySelector('#buyTicketButton').disabled = true;
+  }
 }
