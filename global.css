@@ -4,11 +4,6 @@
     font-family: 'Inter', sans-serif;
 }
 
-body {
-    width: 120rem;
-    height: auto;
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -254,7 +249,7 @@ header {
 .rechargeContainer {
     background-color: #FFFFFF;
     display: block;
-    padding: 8rem 16.5rem 0;
+    padding: 8rem 0;
     text-align: -webkit-center;
     height: 53rem;
 }
@@ -302,7 +297,8 @@ header {
 
 .text {
     padding-left: 0.8rem;
-    text-align:left;
+    text-align: left;
+    font-family: 'poppins', 'sans-serif';
 }
 
 .title-tickets {
@@ -315,7 +311,7 @@ header {
 }
 
 .description-ticket {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
     font-size: 0.9rem;
@@ -447,10 +443,10 @@ footer {
     padding: 2rem 12.5rem 0;
 }
 
-input::-webkit-outer-spin-button, 
+input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 
@@ -458,7 +454,7 @@ input::-webkit-inner-spin-button {
 .activateContainer {
     background-color: rgba(3, 152, 255, 0.16);
     display: block;
-    padding: 8rem 16.5rem 0;
+    padding: 8rem 0;
     text-align: -webkit-center;
     height: 45rem;
 }
