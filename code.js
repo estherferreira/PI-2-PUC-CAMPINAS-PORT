@@ -72,8 +72,8 @@ dropdowns.forEach(dropdown => {
 
 //Ativa botão "Comprar" e mostra a mensagem "Compra efetuada!"
 function showMessage() {
-  let message = document.getElementById('sucessMessage');
-  message.innerHTML = `<p id="sucessMessage" class="sucess">Compra efetuada!</p>`
+  let message = document.getElementById('successMessage');
+  message.innerHTML = `<p id="successMessage" class="success">Compra efetuada!</p>`
 }
 
 function handleChange() {
