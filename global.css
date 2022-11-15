@@ -425,7 +425,7 @@ header {
     cursor: not-allowed;
 }
 
-.sucess {
+.success {
     color: #229A00;
     margin: 0.9rem 0rem;
     display: -webkit-inline-box;
@@ -438,4 +438,10 @@ footer {
     background-color: #001524;
     height: 5rem;
     padding: 2rem 12.5rem 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
