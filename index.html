@@ -24,6 +24,7 @@
     
 </head>
 
+
 <body>
     <!--Cabeçalho-->
     <div class="heroContainer">
@@ -86,8 +87,8 @@
 
             <!--Botões gerar e código do bilhete-->
             <div id="chose-ticket">
-                <button id="generate" class="date" name="generate" onclick="showId()"
-                    type="button" class="light-blue-elements" disabled="true">
+                <button id="generate" class="date" name="generate" onclick="showId()" type="button"
+                    class="light-blue-elements" disabled="true">
                     <a class="blue-elements">Gerar</a>
                 </button>
                 <div id="numrandomid"></div>
@@ -102,6 +103,77 @@
                 modalidade que
                 deseja recarregar e a partir da ativação ele começa a contar o tempo.
             </p>
+
+            <!--Tipos de bilhetes-->
+            <div class="rulesContainer">
+                <div class="rulesContent">
+                    <div class="icon-and-text">
+                        <div class="icon-timer">
+                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
+                        </div>
+
+                        <div class="text">
+                            <span class="title-tickets">
+                                Bilhete Único
+                            </span>
+                            <p class="description-ticket">
+                                Duração de<br>40 minutos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rulesContent">
+                    <div class="icon-and-text">
+                        <div class="icon-timer">
+                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
+                        </div>
+
+                        <div class="text">
+                            <span class="title-tickets">
+                                Bilhete Duplo
+                            </span>
+                            <p class="description-ticket">
+                                Duração 2 períodos<br>de 40 minutos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rulesContent">
+                    <div class="icon-and-text">
+                        <div class="icon-timer">
+                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
+                        </div>
+
+                        <div class="text">
+                            <span class="title-tickets">
+                                Bilhete 7 dias
+                            </span>
+                            <p class="description-ticket">
+                                Duração de<br>7 dias
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rulesContent">
+                    <div class="icon-and-text">
+                        <div class="icon-timer">
+                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
+                        </div>
+
+                        <div class="text">
+                            <span class="title-tickets">
+                                Bilhete 30 dias
+                            </span>
+                            <p class="description-ticket">
+                                Duração de<br>30 dias
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!--Seletor de bilhetes-->
             <div id="tickets">
@@ -140,7 +212,7 @@
     <footer>
         <p class="white-elements">© 2022 PORT | Todos os direitos reservados</p>
     </footer>
-    
+
     <!--Conexão JavaScript-->
     <script src="./code.js"></script>
 
@@ -153,5 +225,5 @@
         <section id="manage"></section>
     </div></div>
     -->
-
 </body>
+</html>
