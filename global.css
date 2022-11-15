@@ -251,6 +251,7 @@ header {
     display: block;
     padding: 8rem 0;
     text-align: -webkit-center;
+    align-items: center;
     height: 53rem;
 }
 
@@ -456,12 +457,12 @@ input::-webkit-inner-spin-button {
     display: block;
     padding: 8rem 0;
     text-align: -webkit-center;
-    height: 45rem;
 }
 
 .activateContent {
     display: inline-flex;
     align-items: center;
+    max-width: 80%;
 }
 
 .activateContentTexts {
