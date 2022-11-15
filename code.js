@@ -43,6 +43,7 @@ function toggleButton() {
 
 //Seleciona as modalidades de bilhetes
 const dropdowns = document.querySelectorAll(".dropdown");
+
 dropdowns.forEach(dropdown => {
   const select = dropdown.querySelector(".select");
   const caret = dropdown.querySelector(".caret");
@@ -66,9 +67,13 @@ dropdowns.forEach(dropdown => {
         option.classList.remove("active");
       });
       option.classList.add("active");
+      handleChange();
     });
   });
+  
 });
+
+//------------------------------------------------------------------------------daqui para cima é da segunda entrega
 
 //Ativa botão "Comprar" e mostra a mensagem "Compra efetuada!"
 function showMessage() {
@@ -87,8 +92,6 @@ function handleChange() {
     document.querySelector('#buyTicketButton').disabled = true;
   }
 }
-
-//------------------------------------------------------------------------------daqui para cima é da segunda entrega
 
 //Ativar botão "Ativar" e mostrar mensagem "Bilhete ativo"
 function Message() {
