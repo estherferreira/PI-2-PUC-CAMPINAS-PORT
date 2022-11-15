@@ -421,7 +421,7 @@ header {
     background-color: #001524;
 }
 
-#buy button:disabled {
+.not-allowed button:disabled {
     cursor: not-allowed;
 }
 
@@ -440,8 +440,58 @@ footer {
     padding: 2rem 12.5rem 0;
 }
 
-input::-webkit-outer-spin-button,
+input::-webkit-outer-spin-button, 
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+
+/*--Activate Content--*/
+.activateContainer {
+    background-color: rgba(3, 152, 255, 0.16);;
+    padding: 8rem 12.5rem 0;
+    height: 80vh;
+    text-align: center;
+}
+
+.activateContent {
+    display: flex;
+    align-items: center;
+}
+
+.activateContentTexts {
+    display: block;
+    width: 30rem;
+    text-align: left;
+}
+
+.tripsStamps {
+    margin-right: 4.25rem;
+}
+
+.code-field-activate {
+    margin: 3rem 1rem 0.8rem 0;
+    background-color: #d6eeff;
+    border-radius: 1.56rem;
+    height: 2.82rem;
+    border: 1px solid #001524;
+    text-align: center;
+    line-height: 2.5;
+    font-style: normal;
+    display: block;
+}
+
+#activateButton {
+    display: flex;
+}
+
+.activateTicketMessage {
+    color: #229A00;
+    font-size: 15px;
+}
+
+.space-between {
+    display: flex;
+    align-items: baseline;
 }
