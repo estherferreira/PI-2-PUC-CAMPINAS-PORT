@@ -87,3 +87,24 @@ function handleChange() {
     document.querySelector('#buyTicketButton').disabled = true;
   }
 }
+
+//------------------------------------------------------------------------------daqui para cima é da segunda entrega
+
+//Ativar botão "Ativar" e mostrar mensagem "Bilhete ativo"
+function Message() {
+  let activateMessage = document.getElementById('successActivateMessage');
+  activateMessage.innerHTML = `<p id="successActivateMessage" class="activateTicketMessage">Bilhete ativo!</p>`
+}
+
+function handleActivateChange ()
+{
+  const codeVerification = document.querySelector('#ticketCodeVerification').value;
+
+  if (codeVerification)
+  {
+    document.querySelector('#activateTicketButton').disabled = false;
+  }
+  else {
+    document.querySelector('#activateTicketButton').disabled = true;
+  }
+}
