@@ -24,7 +24,6 @@
     
 </head>
 
-
 <body>
     <!--Cabeçalho-->
     <div class="heroContainer">
@@ -178,7 +177,8 @@
             <!--Seletor de bilhetes-->
             <div id="tickets">
                 <!--Campo para digitar o código do bilhete-->
-                <input class="code-field" type="number" name="ticketCode" id="ticketCodeField" placeholder="Código do bilhete" onchange="handleChange()">
+                <input class="code-field" type="number" name="ticketCode" id="ticketCodeField"
+                    placeholder="Código do bilhete" onchange="handleChange()">
 
                 <!--Escolher modalidade-->
                 <div class="dropdown" name="dropdown" id="dropdown">
@@ -196,7 +196,7 @@
                 </div>
 
                 <!--Botões gerar e código do bilhete-->
-                <div id="buy">
+                <div class="not-allowed">
                     <button id="buyTicketButton" type="button" class="button-blue" disabled="true"
                         onclick="showMessage()">
                         <a class="white-elements">
@@ -209,6 +209,38 @@
         </section>
     </div>
 
+    <div class="activateContainer">
+        <section id="activate">
+            <div class="activateContent">
+                <div class="tripsStamps">
+                    <img src="Imagens\trips.png" alt="trips" width="737" height="472">
+                </div>
+                <div class="activateContentTexts">
+                    <span class="main-test blue-elements">Boaa! Agora é só ativar seu bilhete ;)</span>
+
+                    <!--Botões comprar e código do bilhete-->
+                    <div class="space-between">
+                        <input class="code-field-activate" type="number" name="ticketCodeVerification"
+                            id="ticketCodeVerification" placeholder="Código do bilhete"
+                            onchange="handleActivateChange()">
+
+                        <div id="successActivateMessage"></div>
+
+                    </div>
+
+                    <div id="activateButton" class="not-allowed">
+                        <button id="activateTicketButton" type="button" class="button-blue" disabled="true"
+                            onclick="Message()">
+                            <a class="white-elements">
+                                Ativar
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
     <footer>
         <p class="white-elements">© 2022 PORT | Todos os direitos reservados</p>
     </footer>
@@ -217,9 +249,6 @@
     <script src="./code.js"></script>
 
     <!--
-    <div class="activateContainer">
-        <section id="activate"></section>
-    </div>
 
     <div class="manageContainer">
         <section id="manage"></section>
