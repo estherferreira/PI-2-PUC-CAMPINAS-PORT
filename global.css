@@ -41,7 +41,7 @@ button {
     line-height: 2.5;
     padding: 0 1.25rem;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.88rem;
 }
 
 .main-test {
@@ -88,7 +88,7 @@ header {
 /*--Hero Content--*/
 .heroContainer {
     background: #001524 url(Imagens/Trem.png) no-repeat left 100% top;
-    height: 98vh;
+    height: 53rem;
 }
 
 #home {
@@ -155,7 +155,7 @@ header {
     width: 0;
     border-radius: 0.3rem;
     border: solid #009BFF;
-    border-width: 0 3px 3px 0;
+    border-width: 0 0.19rem 0.19rem 0;
     -webkit-transform: rotate(0deg) scale(0);
     -ms-transform: rotate(0deg) scale(0);
     transform: rotate(0deg) scale(0);
@@ -178,7 +178,7 @@ header {
     width: 0.25rem;
     height: 0.44rem;
     border: solid #009BFF;
-    border-width: 0 2px 2px 0;
+    border-width: 0 0.13rem 0.13rem 0;
     background-color: transparent;
     border-radius: 0;
 }
@@ -199,7 +199,7 @@ header {
     display: inline-block;
     vertical-align: middle;
     margin-right: 0.44rem;
-    margin-bottom: 2.5px;
+    margin-bottom: 0.16rem;
 }
 
 /*caixa de seleção no estado: verificada*/
@@ -215,7 +215,6 @@ header {
 
 #chose-ticket {
     vertical-align: middle;
-    column-count: 2;
     margin-top: 1.87rem;
     align-items: center;
     margin-right: 0.62rem;
@@ -249,22 +248,23 @@ header {
 /*--Recharge Content--*/
 .rechargeContainer {
     background-color: #FFFFFF;
-    padding: 8rem 12.5rem 0;
-    height: 90vh;
-    text-align: center;
+    display: block;
+    padding: 8rem 16.5rem 0;
+    text-align: -webkit-center;
+    height: 53rem;
 }
 
 .text-recharge {
+    width: 39rem;
     margin-top: 1.3rem;
-    align-items: center;
-    padding: 0 26rem;
-
 }
 
 .rulesContainer {
-    display: -webkit-inline-box;
-    text-align: left;
-    margin: 3rem 17.5em 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: max-content;
+    margin-top: 3rem;
 }
 
 .rulesContent {
@@ -314,37 +314,37 @@ header {
     font-size: 0.9rem;
     line-height: 1.4rem;
     color: #333333;
+    text-align: left;
 }
 
 .code-field {
     background-color: #FFFFFF;
     border-radius: 1.56rem;
     height: 2.82rem;
-    border: 1px solid #001524;
+    border: 0.06rem solid #001524;
     text-align: center;
-    line-height: 2.5;
-    font-style: normal;
 }
 
 
 /*Modalidades*/
 #tickets {
-    display: -webkit-inline-box;
+    display: inline-flex;
+    margin-top: 6rem;
 }
 
 ::placeholder {
-    font-size: 15px;
+    font-size: 0.94rem;
 }
 
 .dropdown {
-    width: 300px;
+    width: 18.75rem;
     position: relative;
     text-align: left;
-    font-size: 15px;
+    font-size: 0.94rem;
 }
 
 .select {
-    border: 1px solid #001524;
+    border: 0.06rem solid #001524;
     display: flex;
     height: 2.82rem;
     background: #fff;
@@ -449,10 +449,11 @@ input::-webkit-inner-spin-button {
 
 /*--Activate Content--*/
 .activateContainer {
-    background-color: rgba(3, 152, 255, 0.16);;
-    padding: 8rem 12.5rem 0;
-    height: 80vh;
-    text-align: center;
+    background-color: rgba(3, 152, 255, 0.16);
+    display: block;
+    padding: 8rem 16.5rem 0;
+    text-align: -webkit-center;
+    height: 45rem;
 }
 
 .activateContent {
