@@ -456,7 +456,7 @@ input::-webkit-inner-spin-button {
 }
 
 .activateContent {
-    display: flex;
+    display: inline-flex;
     align-items: center;
 }
 
@@ -464,6 +464,7 @@ input::-webkit-inner-spin-button {
     display: block;
     width: 30rem;
     text-align: left;
+    margin-right: 1rem;
 }
 
 .tripsStamps {
