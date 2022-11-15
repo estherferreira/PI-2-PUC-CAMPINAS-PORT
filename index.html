@@ -103,85 +103,13 @@
                 deseja recarregar e a partir da ativação ele começa a contar o tempo.
             </p>
 
-            <!--Tipos de bilhetes-->
-            <div class="rulesContainer">
-                <div class="rulesContent">
-                    <div class="icon-and-text">
-                        <div class="icon-timer">
-                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
-                        </div>
-
-                        <div class="text">
-                            <span class="title-tickets">
-                                Bilhete Único
-                            </span>
-                            <p class="description-ticket">
-                                Duração de<br>40 minutos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rulesContent">
-                    <div class="icon-and-text">
-                        <div class="icon-timer">
-                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
-                        </div>
-
-                        <div class="text">
-                            <span class="title-tickets">
-                                Bilhete Duplo
-                            </span>
-                            <p class="description-ticket">
-                                Duração 2 períodos<br>de 40 minutos
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rulesContent">
-                    <div class="icon-and-text">
-                        <div class="icon-timer">
-                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
-                        </div>
-
-                        <div class="text">
-                            <span class="title-tickets">
-                                Bilhete 7 dias
-                            </span>
-                            <p class="description-ticket">
-                                Duração de<br>7 dias
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="rulesContent">
-                    <div class="icon-and-text">
-                        <div class="icon-timer">
-                            <img class="icon" src="Imagens\timer.png" width="30" height="30" alt="Timer">
-                        </div>
-
-                        <div class="text">
-                            <span class="title-tickets">
-                                Bilhete 30 dias
-                            </span>
-                            <p class="description-ticket">
-                                Duração de<br>30 dias
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!--Seletor de bilhetes-->
             <div id="tickets">
                 <!--Campo para digitar o código do bilhete-->
-                <input class="code-field" type="text" name="text" id="text" placeholder="Código do bilhete"
-                    onchange="buyButton()">
+                <input class="code-field" type="number" name="ticketCode" id="ticketCodeField" placeholder="Código do bilhete" onchange="handleChange()">
 
                 <!--Escolher modalidade-->
-                <div class="dropdown" name="dropdown" id="dropdown" onchange="buyButton()">
+                <div class="dropdown" name="dropdown" id="dropdown">
                     <div class="select">
                         <span class="selected">Escolher modalidade</span>
                         <div class="caret"></div>
@@ -197,7 +125,7 @@
 
                 <!--Botões gerar e código do bilhete-->
                 <div id="buy">
-                    <button id="buyticket" name="buyticket" type="button" class="button-blue" disabled="true"
+                    <button id="buyTicketButton" type="button" class="button-blue" disabled="true"
                         onclick="showMessage()">
                         <a class="white-elements">
                             Comprar
@@ -205,7 +133,7 @@
                     </button>
                 </div>
             </div>
-            <div id="sucessMessage"></div>
+            <div id="successMessage"></div>
         </section>
     </div>
 
