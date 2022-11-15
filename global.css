@@ -4,6 +4,11 @@
     font-family: 'Inter', sans-serif;
 }
 
+body {
+    width: 120rem;
+    height: auto;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -281,6 +286,7 @@ header {
     display: flex;
     align-items: center;
     padding: 0 1rem;
+    width: max-content;
 }
 
 .icon-timer {
@@ -296,6 +302,7 @@ header {
 
 .text {
     padding-left: 0.8rem;
+    text-align:left;
 }
 
 .title-tickets {
