@@ -500,3 +500,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     align-items: baseline;
 }
+
+.description-activate {
+    margin-top: 1.3rem;
+}
