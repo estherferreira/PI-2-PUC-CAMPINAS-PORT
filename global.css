@@ -299,7 +299,6 @@ header {
 .text {
     padding-left: 0.8rem;
     text-align: left;
-    font-family: 'poppins', 'sans-serif';
 }
 
 .title-tickets {
@@ -312,7 +311,7 @@ header {
 }
 
 .description-ticket {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif ;
     font-style: normal;
     font-weight: 600;
     font-size: 0.9rem;
