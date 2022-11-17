@@ -93,10 +93,10 @@ function handleChange() {
   }
 }
 
-//Ativar botão "Ativar" e mostrar mensagem "Bilhete ativo"
+//Ativar botão "Ativar" e mostrar mensagem "Recarga ativa!"
 function Message() {
   let activateMessage = document.getElementById('successActivateMessage');
-  activateMessage.innerHTML = `<p id="successActivateMessage" class="activateTicketMessage">Recarga ativo!</p>`
+  activateMessage.innerHTML = `<p id="successActivateMessage" class="activateTicketMessage">Recarga ativa!</p>`
 }
 
 function handleActivateChange ()
