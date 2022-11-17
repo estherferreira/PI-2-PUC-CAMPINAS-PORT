@@ -93,7 +93,7 @@ function handleChange() {
 
 //------------------------------------------------------------------------------daqui para cima é da segunda entrega
 
-//Ativar botão "Ativar" na seção ativação e mostrar mensagem "Recarga ativa!"
+//Ativar botão "Ativar" na seção ativação e mostra a  mensagem "Recarga ativa!"
 function Message() {
   let activateMessage = document.getElementById('successActivateMessage');
   activateMessage.innerHTML = `<p id="successActivateMessage" class="activateTicketMessage">Recarga ativa!</p>`
