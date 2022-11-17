@@ -73,9 +73,7 @@ dropdowns.forEach(dropdown => {
   
 });
 
-//------------------------------------------------------------------------------daqui para cima é da segunda entrega
-
-//Ativa botão "Comprar" e mostra a mensagem "Compra efetuada!"
+//Ativa botão "Comprar" na seção recarga e mostra a mensagem "Compra efetuada!"
 function showMessage() {
   let message = document.getElementById('successMessage');
   message.innerHTML = `<p id="successMessage" class="success">Compra efetuada!</p>`
@@ -93,7 +91,9 @@ function handleChange() {
   }
 }
 
-//Ativar botão "Ativar" e mostrar mensagem "Recarga ativa!"
+//------------------------------------------------------------------------------daqui para cima é da segunda entrega
+
+//Ativar botão "Ativar" na seção ativação e mostrar mensagem "Recarga ativa!"
 function Message() {
   let activateMessage = document.getElementById('successActivateMessage');
   activateMessage.innerHTML = `<p id="successActivateMessage" class="activateTicketMessage">Recarga ativa!</p>`
