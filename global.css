@@ -504,3 +504,47 @@ input::-webkit-inner-spin-button {
 .description-activate {
     margin-top: 1.3rem;
 }
+
+
+/*--Manage--*/
+.manageContainer {
+    background-color: #FFFFFF;
+    display: block;
+    padding: 8rem 12.5rem 0;
+    text-align: left;
+}
+
+.manageContent {
+    display: flex;
+    text-align: left;
+    width: 66rem;
+}
+
+.textsManage {
+    margin: 4rem 28.5rem 0 0;
+}
+
+.text-manage {
+    width: 30rem;
+    margin-top: 1.3rem;
+}
+
+.margin-title {
+    margin-top: 13.81rem;
+}
+
+.code-field-manage {
+    margin: 3rem 1rem 0.8rem 0;
+    background-color: #ffffff;
+    border-radius: 1.56rem;
+    height: 2.82rem;
+    border: 1px solid #001524;
+    text-align: center;
+    line-height: 2.5;
+    font-style: normal;
+    display: block;
+}
+
+.registro-de-uso-ilustracao {
+    margin: 0 0 -0.2rem;
+}
