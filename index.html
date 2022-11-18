@@ -17,7 +17,7 @@
     <!--Favicon-->
     <link rel="icon" type="image/x-icon" href="Imagens/favicon-port.ico">
 
-    <title>Port: Viva ∞ histórias, compre um bilhete</title>
+    <title>Port</title>
 
     <!--Conexão Axios-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -61,7 +61,7 @@
             </div>
         </header>
 
-        <!--Seção home-->
+        <!--Textos página principal-->
         <section id="home">
             <span class="main-test light-blue-elements">Redescubra o transporte público com a &rarr; PORT ;)
             </span>
@@ -84,19 +84,16 @@
                 </label>
             </div>
 
-            <!--Botão para gerar um número aleatório. Botão inicia travado e se mantém assim até que o campo requisitado seja preenchido-->
+            <!--Botões gerar e código do bilhete-->
             <div id="chose-ticket">
-                <button id="generate" class="date" name="generate" onclick="showId()" type="button"
+                <button id="generate" class="date" name="generate" onclick="cadastraBilhete()" type="button"
                     class="light-blue-elements" disabled="true">
                     <a class="blue-elements">Gerar</a>
                 </button>
-                <!--Print da função "createRandomNumber()" que gera um número aleatório-->
                 <div id="numrandomid"></div>
             </div>
         </section>
     </div>
-    
-    <!--Seção recargas-->
     <div id="recharge" class="rechargeContainer">
         <section>
             <span class="main-test blue-elements">Recarregue seu bilhete
@@ -106,7 +103,7 @@
                 deseja recarregar e a partir da ativação ele começa a contar o tempo.
             </p>
 
-            <!--Regras de uso de cada bilhete: Nome da modalidade e duração-->
+            <!--Tipos de bilhetes-->
             <div class="rulesContainer">
                 <div class="rulesContent">
                     <div class="icon-and-text">
@@ -177,13 +174,13 @@
                 </div>
             </div>
 
-            <!--Campos para fazer a recarga no bilhete-->
+            <!--Seletor de bilhetes-->
             <div id="tickets">
                 <!--Campo para digitar o código do bilhete-->
-                <input class="code-field" type="number" name="ticketCode" id="ticketCodeField"
-                    placeholder="Código do bilhete" onchange="handleChange()">
+                <input class="code-field" type="text" name="ticketCode" id="ticketCodeField"
+                    placeholder="Código do bilhete" onchange="handleChange()" maxlength="6">
 
-                <!--Escolha das modalidades-->
+                <!--Escolher modalidade-->
                 <div class="dropdown" name="dropdown" id="dropdown">
                     <div class="select">
                         <span class="selected">Escolher modalidade</span>
@@ -193,27 +190,25 @@
                     <ul class="menu">
                         <li>Bilhete Único - R$3,10</li>
                         <li>Bilhete Duplo - R$7,20</li>
-                        <li>Bilhete 7 dias - R$14,39</li>
+                        <li>Bilhete 7 dias - R$14,40</li>
                         <li>Bilhete 30 dias - R$35,50</li>
                     </ul>
                 </div>
 
-                <!--Botão para concretizar uma compra de recarga. Botão inicia travado e se mantém assim até que os campos requisitados sejam preenchidos-->
+                <!--Botão comprar-->
                 <div class="not-allowed">
                     <button id="buyTicketButton" type="button" class="button-blue" disabled="true"
-                        onclick="showMessage()">
+                        onclick="recarregaBilhete()">
                         <a class="white-elements">
                             Comprar
                         </a>
                     </button>
                 </div>
             </div>
-            <!--Print da função "showMessage()" que mostra a mensagem "Compra efetuada!"-->
             <div id="successMessage"></div>
         </section>
     </div>
 
-    <!--Seção Ativação-->
     <div id="activate" class="activateContainer">
         <section>
             <div class="activateContent">
@@ -222,22 +217,17 @@
                 </div>
                 <div class="activateContentTexts">
                     <span class="main-test blue-elements">Boaa! Agora é só ativar seu bilhete ;)</span>
-                    <p class="description-activate blue-elements">
-                        Com o seu código de bilhete que, é único, você pode verificar todas as suas recargas de forma simples e rápida. Garanto, melhor parte :) 
-                    </p>
 
+                    <!--Botão ativar-->
                     <div class="space-between">
-                        <!--Campo para digitar o código do bilhete-->
                         <input class="code-field-activate" type="number" name="ticketCodeVerification"
                             id="ticketCodeVerification" placeholder="Código do bilhete"
                             onchange="handleActivateChange()">
 
-                        <!--Print da função "Message()" que mostra a mensagem "Recarga ativa!"-->
                         <div id="successActivateMessage"></div>
 
                     </div>
 
-                    <!--Botão para ativar uma recarga-->
                     <div id="activateButton" class="not-allowed">
                         <button id="activateTicketButton" type="button" class="button-blue" disabled="true"
                             onclick="Message()">
@@ -250,40 +240,7 @@
             </div>
         </section>
     </div>
-    
-    <!--Seção Gerenciamento-->
-    <div id="manage" class="manageContainer">
-        <section>
-            <div class="manageContent">
-                <div class="textsManage">
-                    <span class="margin-title main-test blue-elements">Gerencie seu bilhete</span>
-                    <p class="text-manage blue-elements">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.
-                    </p>
 
-                    <div class="space-between">
-                        <!--Campo para digitar o código do bilhete-->
-                        <input class="code-field-manage" type="number" name="ticketCodeVerification"
-                            id="ticketCodeVerification" placeholder="Código do bilhete">
-
-                        <!--Botão que disponibiliza o extrato referente ao código de bilhete inserido-->
-                        <div id="activateButton" class="not-allowed">
-                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true">
-                                <a class="white-elements">
-                                    Verificar
-                                </a>
-                            </button>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="registro-de-uso-ilustracao">
-                    <img src="Imagens\registro-de-uso-ilustracao.png" alt="Registro de uso" width="390" height="618">
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!--Rodapé do site contendo: o simbolo de Copyright, ano e nome do site | Todos os direitos reservados-->
     <footer>
         <p class="white-elements">© 2022 PORT | Todos os direitos reservados</p>
     </footer>
@@ -291,6 +248,12 @@
     <!--Conexão JavaScript-->
     <script src="./code.js"></script>
 
+    <!--
+
+    <div class="manageContainer">
+        <section id="manage"></section>
+    </div></div>
+    -->
 </body>
 
 </html>

@@ -299,6 +299,7 @@ header {
 .text {
     padding-left: 0.8rem;
     text-align: left;
+    font-family: 'Poppins', sans-serif;
 }
 
 .title-tickets {
@@ -311,7 +312,7 @@ header {
 }
 
 .description-ticket {
-    font-family: 'Poppins', sans-serif ;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 0.9rem;
@@ -435,6 +436,13 @@ header {
     font-size: 15px;
     width: 35.5rem;
 }
+.error {
+    color: #9a0000;
+    margin: 0.9rem 0rem;
+    display: -webkit-inline-box;
+    font-size: 15px;
+    width: 35.5rem;
+}
 
 footer {
     display: flex;
@@ -499,52 +507,4 @@ input::-webkit-inner-spin-button {
 .space-between {
     display: flex;
     align-items: baseline;
-}
-
-.description-activate {
-    margin-top: 1.3rem;
-}
-
-
-/*--Manage--*/
-.manageContainer {
-    background-color: #FFFFFF;
-    display: block;
-    padding: 8rem 12.5rem 0;
-    text-align: left;
-}
-
-.manageContent {
-    display: flex;
-    text-align: left;
-    width: 66rem;
-}
-
-.textsManage {
-    margin: 4rem 28.5rem 0 0;
-}
-
-.text-manage {
-    width: 30rem;
-    margin-top: 1.3rem;
-}
-
-.margin-title {
-    margin-top: 13.81rem;
-}
-
-.code-field-manage {
-    margin: 3rem 1rem 0.8rem 0;
-    background-color: #ffffff;
-    border-radius: 1.56rem;
-    height: 2.82rem;
-    border: 1px solid #001524;
-    text-align: center;
-    line-height: 2.5;
-    font-style: normal;
-    display: block;
-}
-
-.registro-de-uso-ilustracao {
-    margin: 0 0 -0.2rem;
 }
