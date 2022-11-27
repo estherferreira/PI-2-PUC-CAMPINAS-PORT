@@ -462,13 +462,13 @@ input::-webkit-inner-spin-button {
 .activateContainer {
     background-color: rgba(3, 152, 255, 0.16);
     display: block;
-    padding: 8rem 0;
+    padding: 10rem 0;
     text-align: -webkit-center;
 }
 
 .activateContent {
     display: inline-flex;
-    align-items: center;
+    /*align-items: center;*/
     max-width: 80%;
 }
 
@@ -484,7 +484,7 @@ input::-webkit-inner-spin-button {
 }
 
 .code-field-activate {
-    margin: 3rem 1rem 0.8rem 0;
+    margin: 3rem 0.7rem 0.8rem 0;
     background-color: #d6eeff;
     border-radius: 1.56rem;
     height: 2.82rem;
@@ -493,10 +493,11 @@ input::-webkit-inner-spin-button {
     line-height: 2.5;
     font-style: normal;
     display: block;
+    padding: 0 1rem;
 }
 
 #activateButton {
-    display: flex;
+    display: block;
 }
 
 .activateTicketMessage {
@@ -507,6 +508,45 @@ input::-webkit-inner-spin-button {
 .space-between {
     display: flex;
     align-items: baseline;
+}
+
+.menuRecharge {
+    list-style: none;
+    padding: 1.8em 2rem 1.7em;
+    background: rgba(255, 255, 255, 0.6);;
+    display: block;
+    height: 10rem;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #001524;
+    position: absolute;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.showRecharges {
+    padding: 0;
+}
+
+.titleRecharge {
+    font-weight: 600;
+}
+
+.durationRecharge {
+    font-size: 0.9rem;
+}
+
+.menuRecharge li {
+    padding: 0 0.5em 1.7em 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.activeTicket {
+    color: #229A00;
+    margin: 0.9rem;
+    display: -webkit-inline-box;
+    font-size: 15px;
 }
 
 
