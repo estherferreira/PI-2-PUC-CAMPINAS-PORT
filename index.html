@@ -240,6 +240,43 @@
             </div>
         </section>
     </div>
+    
+        <div id="manage" class="manageContainer">
+        <section>
+            <div class="manageContent">
+                <div class="textsManage">
+                    <span class="margin-title main-test blue-elements">Gerencie seu bilhete</span>
+                    <p class="text-manage blue-elements">Monitore seus passos e organize suas finanças de forma rápida e
+                        intuitiva! Com o código do Bilhete Urbano, você puxa seu histórico de utilizações e pode
+                        acompanhar datas, horários e valores de recargas ;)
+                    </p>
+
+                    <!--Botão gerenciar-->
+                    <div class="space-between">
+                        <input class="code-field-manage" type="number" name="ticketCodeVerification"
+                            id="ticketCodeVerification" placeholder="Código do bilhete"
+                            onchange="handleActivateChange()">
+
+                        <div id="successActivateMessage"></div>
+
+                        <div id="activateButton" class="not-allowed">
+                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true"
+                                onclick="Message()">
+                                <a class="white-elements">
+                                    Verificar
+                                </a>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="registro-de-uso-ilustracao">
+                    <img src="Imagens\representacao-historico-de-viagens.png" alt="Registro de uso" width="390"
+                        height="618">
+                </div>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p class="white-elements">© 2022 PORT | Todos os direitos reservados</p>
@@ -247,13 +284,7 @@
 
     <!--Conexão JavaScript-->
     <script src="./code.js"></script>
-
-    <!--
-
-    <div class="manageContainer">
-        <section id="manage"></section>
-    </div></div>
-    -->
+    
 </body>
 
 </html>
