@@ -61,7 +61,7 @@
             </div>
         </header>
 
-        <!--Textos página principal-->
+        <!--Seção home-->
         <section id="home">
             <span class="main-test light-blue-elements">Redescubra o transporte público com a &rarr; PORT ;)
             </span>
@@ -84,16 +84,19 @@
                 </label>
             </div>
 
-            <!--Botões gerar e código do bilhete-->
+            <!--Botão para gerar um número aleatório. Botão inicia travado e se mantém assim até que o campo requisitado seja preenchido-->
             <div id="chose-ticket">
                 <button id="generate" class="date" name="generate" onclick="cadastraBilhete()" type="button"
                     class="light-blue-elements" disabled="true">
                     <a class="blue-elements">Gerar</a>
                 </button>
+                <!--Print da função "createRandomNumber()" que gera um número aleatório-->
                 <div id="numrandomid"></div>
             </div>
         </section>
     </div>
+
+    <!--Seção recargas-->
     <div id="recharge" class="rechargeContainer">
         <section>
             <span class="main-test blue-elements">Recarregue seu bilhete
@@ -103,7 +106,7 @@
                 deseja recarregar e a partir da ativação ele começa a contar o tempo.
             </p>
 
-            <!--Tipos de bilhetes-->
+            <!--Regras de uso de cada bilhete: Nome da modalidade e duração-->
             <div class="rulesContainer">
                 <div class="rulesContent">
                     <div class="icon-and-text">
@@ -174,13 +177,13 @@
                 </div>
             </div>
 
-            <!--Seletor de bilhetes-->
+            <!--Campos para fazer a recarga no bilhete-->
             <div id="tickets">
                 <!--Campo para digitar o código do bilhete-->
                 <input class="code-field" type="text" name="ticketCode" id="ticketCodeField"
                     placeholder="Código do bilhete" onchange="handleChange()" maxlength="6">
 
-                <!--Escolher modalidade-->
+                <!--Escolha das modalidades-->
                 <div class="dropdown" name="dropdown" id="dropdown">
                     <div class="select">
                         <span class="selected">Escolher modalidade</span>
@@ -195,7 +198,7 @@
                     </ul>
                 </div>
 
-                <!--Botão comprar-->
+                <!--Botão para concretizar uma compra de recarga. Botão inicia travado e se mantém assim até que os campos requisitados sejam preenchidos-->
                 <div class="not-allowed">
                     <button id="buyTicketButton" type="button" class="button-blue" disabled="true"
                         onclick="recarregaBilhete()">
@@ -205,10 +208,12 @@
                     </button>
                 </div>
             </div>
+            <!--Print da função "showMessage()" que mostra a mensagem "Compra efetuada!"-->
             <div id="successMessage"></div>
         </section>
     </div>
 
+    <!--Seção Ativação-->
     <div id="activate" class="activateContainer">
         <section>
             <div class="activateContent">
@@ -217,31 +222,41 @@
                 </div>
                 <div class="activateContentTexts">
                     <span class="main-test blue-elements">Boaa! Agora é só ativar seu bilhete ;)</span>
+                    <p class="text-manage blue-elements">Com o seu código de bilhete que, é único, você pode verificar
+                        todas as suas recargas de forma
+                        simples e rápida — Garanto, melhor parte :)
+                    </p>
 
-                    <!--Botão ativar-->
                     <div class="space-between">
+                        <!--Campo para digitar o código do bilhete-->
                         <input class="code-field-activate" type="number" name="ticketCodeVerification"
                             id="ticketCodeVerification" placeholder="Código do bilhete"
                             onchange="handleActivateChange()">
 
-                        <div id="successActivateMessage"></div>
+                        <!--Botão para ativar uma recarga-->
+                        <div id="activateButton" class="not-allowed">
+                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true">
+                                <a class="white-elements">
+                                    Ativar
+                                </a>
+                            </button>
+                        </div>
 
+                        <!--Print da função "Message()" que mostra a mensagem "Recarga ativa!"-->
+                        <div id="successActivateMessage"></div>
                     </div>
 
-                    <div id="activateButton" class="not-allowed">
-                        <button id="activateTicketButton" type="button" class="button-blue" disabled="true"
-                            onclick="Message()">
-                            <a class="white-elements">
-                                Ativar
-                            </a>
-                        </button>
+                    <!--Print da função "...()" que mostra um dropdown com as recargas do cógico digitado"-->
+                    <div id="backgroundRecharge">
+                        <div id="dropdownRecharge"></div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    
-        <div id="manage" class="manageContainer">
+
+    <!--Seção Gerenciamento-->
+    <div id="manage" class="manageContainer">
         <section>
             <div class="manageContent">
                 <div class="textsManage">
@@ -251,17 +266,16 @@
                         acompanhar datas, horários e valores de recargas ;)
                     </p>
 
-                    <!--Botão gerenciar-->
                     <div class="space-between">
+                        <!--Campo para digitar o código do bilhete-->
                         <input class="code-field-manage" type="number" name="ticketCodeVerification"
-                            id="ticketCodeVerification" placeholder="Código do bilhete"
-                            onchange="handleActivateChange()">
+                            id="ticketCodeVerification" placeholder="Código do bilhete">
 
                         <div id="successActivateMessage"></div>
 
+                        <!--Botão que disponibiliza o extrato referente ao código de bilhete inserido-->
                         <div id="activateButton" class="not-allowed">
-                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true"
-                                onclick="Message()">
+                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true">
                                 <a class="white-elements">
                                     Verificar
                                 </a>
@@ -278,13 +292,14 @@
         </section>
     </div>
 
+    <!--Rodapé do site contendo: o simbolo de Copyright, ano e nome do site | Todos os direitos reservados-->
     <footer>
         <p class="white-elements">© 2022 PORT | Todos os direitos reservados</p>
     </footer>
 
     <!--Conexão JavaScript-->
     <script src="./code.js"></script>
-    
+
 </body>
 
 </html>
