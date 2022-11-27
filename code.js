@@ -138,24 +138,56 @@ function recarregaBilhete () {
 
 
 
-//------------------------------------------------------------------------------daqui para cima é da segunda entrega'
-//Ativar botão "Ativar" e mostrar mensagem "Bilhete ativo"
+//-----------------------Terceira Entrega-------------------------------
+
+//Mensagem "Bilhete ativo!"
 function Message() {
   let activateMessage = document.getElementById('successActivateMessage');
-  activateMessage.innerHTML = `<p id="successActivateMessage" class="activateTicketMessage">Bilhete ativo!</p>`
+  activateMessage.innerHTML = `<p id="successMessage" class="activeTicket">Bilhete ativo!</p>`
 }
 
-function handleActivateChange (){
-  const codeVerification = document.querySelector('#ticketCodeVerification').value;
+//Exibe as informações do código digitado
+function visorRecharges() {
+  let visorRecharge = document.getElementById('backgroundRecharge');
+  visorRecharge.innerHTML = `<div class="menuRecharge" id="backgroundRecharge"><ul class="showRecharges blue-elements" id="dropdownRecharge">
+  <li>
+  <p class="titleRecharge">
+  Recarga única
+  </p>
 
-  if (codeVerification)
-  {
+  <p class="durationRecharge">
+  40 minutos
+  </p>
+
+  </li>
+
+  <li>
+  <p class="titleRecharge">
+  Recarga de 7 dias
+  </p>
+
+  <p class="durationRecharge">
+  7 dias
+  </p>
+
+  </li>
+  
+  </ul></div>`
+return
+}
+
+//Ativar botão "Ativar" e exibe informações do código atráves da função "visorRecharges()"
+function handleActivateChange() {
+  const codeVerification = document.querySelector('#ticketCodeVerification').value;
+  if (codeVerification) {
+    visorRecharges();
     document.querySelector('#activateTicketButton').disabled = false;
   }
   else {
     document.querySelector('#activateTicketButton').disabled = true;
   }
 }
+
 //Função para avisos
 function Comunicado (mensagem) {
   this.mensagem  = mensagem;
