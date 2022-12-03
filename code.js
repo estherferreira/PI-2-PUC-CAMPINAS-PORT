@@ -147,7 +147,7 @@ function Message() {
 }
 
 //Exibe as informações do código digitado
-function visorRecharges() {
+/*function visorRecharges() {
   let visorRecharge = document.getElementById('backgroundRecharge');
   visorRecharge.innerHTML = `<div class="menuRecharge" id="backgroundRecharge"><ul class="showRecharges blue-elements" id="dropdownRecharge">
   <li>
@@ -174,13 +174,35 @@ function visorRecharges() {
   
   </ul></div>`
 return
-}
+}*/
+function searchRecharge() {
+  let code = document.getElementById('ticketCodeVerification').value;
+  console.log(code);
+  let url = `http://localhost:3000/Recarga/${code}`
 
+  axios.get(url)
+  .then(response => {
+      createDinamicList(response.data)        
+  })
+  .catch(error  =>  {
+      alert(error)  
+      console.log(error)  
+  })
+// no html tem que criar uma UL e declarar um id e substituir veiculos pelo novo id 
+  const createDinamicList = ( Recharge ) => {
+      const ulRecharge = document.getElementById('Recharge')
+      Recharge.map(recharge => {
+          const listRecharge = document.createElement('li')//em vez disso uma função com switch aqui para guardar as strings no formato certo ou modificar o switch do backend para guardar os dados do jeito que quiser  
+          listRecharge.innerHTML = `Codigo da recarga: ${recharge.cdr} - Recarga tipo: ${recharge.tipo} - Data: ${recharge.data}`
+          ulRecharge.appendChild(listRecharge)
+  })
+}
+}
 //Ativar botão "Ativar" e exibe informações do código atráves da função "visorRecharges()"
 function handleActivateChange() {
   const codeVerification = document.querySelector('#ticketCodeVerification').value;
   if (codeVerification) {
-    visorRecharges();
+    searchRecharge();
     document.querySelector('#activateTicketButton').disabled = false;
   }
   else {
