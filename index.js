@@ -19,7 +19,7 @@ function banco_de_dados ()
 		}
 		catch (erro)
 		{
-			console.log ('Não foi possível estabelecer conexão com o banco_de_dados!');
+			console.log('Não foi possível estabelecer conexão com o banco_de_dados!');
 			process.exit(1);
 		}
 
@@ -215,7 +215,6 @@ async function list (req, res)
 {
 	const code = req.params.code;
 
-	console.log(code+'chegou na função list');
     let rec;
 	try
 	{
@@ -268,3 +267,60 @@ async function server ()
     app.listen(3000);
 }
 server();
+//--------------------------------------------------------------------------------------------------------------------
+/*
+
+        //cria tabela ativação 
+		try
+		{
+			const conexao = await this.getConexao();
+			const sqlr    = 'CREATE TABLE ATIVACAO(COD_ATIVACAO NUMBER(6, 0) CONSTRAINT ATIVACAO_PK PRIMARY KEY,'+
+			'TIPO VARCHAR2(20), DATA_ATIVACAO DATE,  HORA_ATIVACAO VARCHAR2(8),'+
+			'VALOR_ATIVACAO NUMBER(5, 2), FK_ID_BILHETE NUMBER (6, 0),'+
+			'FOREIGN KEY (FK_ID_BILHETE) REFERENCES BILHETE (ID_USUARIO_BILHETE))';
+			await conexao.execute(sqlr);
+			console.log('Tabela criada ativação!')
+		}
+		catch (erro)
+		{}
+
+		try
+		{
+			const conexao = await this.getConexao();
+			const sqlr    = 'CREATE TABLE UTILIZACAO(COD_UTILIZACAO NUMBER(6, 0) CONSTRAINT UTILIZACAO_PK PRIMARY KEY,'+
+			'TIPO VARCHAR2(20), DATA_UTILIZACAO DATE,  HORA_UTILIZACAO VARCHAR2(8),'+
+			'VALOR_UTILIZACAO NUMBER(5, 2), FK_ID_BILHETE NUMBER (6, 0))';
+			await conexao.execute(sqlr);
+			console.log('Tabela criada de utilização!')
+		}
+		catch (erro)
+		{}
+function recarregaBilhete() {
+  const cdb = document.getElementById("ticketCodeField").value;
+  const tipo = document.querySelector(".selected").innerText;
+  // cdb : codigo do bilhete do usuario
+  // tipo : tipo do bilhete escolhido
+  let objRecarga = { cdb: cdb, tipo: tipo };
+  let url = `http://localhost:3000/Recarga/`;
+
+  let res = axios
+    .post(url, objRecarga)
+    .then((response) => {
+      if (response.data) {
+        showMessageSuccess();
+        const msg = new Comunicado(response.data.mensagem);
+        console.log(msg.get());
+      }
+    })
+    .catch((error) => {
+      if (error.response) {
+        showMessageError();
+        const msg = new Comunicado(error.response.data.mensagem);
+        console.log(msg.get());
+      }
+    });
+}
+
+		
+ */
+
