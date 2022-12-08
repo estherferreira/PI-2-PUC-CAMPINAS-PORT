@@ -233,11 +233,21 @@
                             id="ticketCodeVerification" placeholder="Código do bilhete"
                             onchange="searchRecharge()">
 
-                        <!--Botão para ativar uma recarga-->
+                        <!--Botão para verificar recargas de um código-->
                         <div id="activateButton" class="not-allowed">
-                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true" >
+                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true">
                                 <a class="white-elements">
                                     Verificar
+                                </a>
+                            </button>
+                        </div>
+
+                        <!--Botão para ativar uma recarga-->
+                        <div id="activateButton" class="not-allowed verifyButton">
+                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true"
+                                onclick="Message()">
+                                <a>
+                                    Ativar
                                 </a>
                             </button>
                         </div>
