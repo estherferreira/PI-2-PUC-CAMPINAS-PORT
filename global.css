@@ -552,6 +552,21 @@ input::-webkit-inner-spin-button {
   font-size: 15px;
 }
 
+.verifyButton {
+  margin-left: 0.7rem;
+}
+
+.verifyButton button:disabled {
+  color: #7e888f;
+  background-color: #e4e4e4;
+  font-weight: 600;
+}
+
+.verifyButton button:active {
+  color: #fff;
+  background-color: #001524;
+}
+
 /*--Manage--*/
 .manageContainer {
   background-color: #ffffff;
@@ -593,4 +608,19 @@ input::-webkit-inner-spin-button {
 
 .registro-de-uso-ilustracao {
   margin: 0 0 -0.2rem;
+}
+
+#extract {
+  list-style: none;
+  padding: 1.3rem 2.8rem 1.7rem;
+  background: rgba(255, 255, 255, 0.6);
+  display: block;
+  height: 15rem;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: #001524;
+  position: absolute;
+  transition: 0.2s;
+  z-index: 1;
+  overflow-y: scroll;
 }
