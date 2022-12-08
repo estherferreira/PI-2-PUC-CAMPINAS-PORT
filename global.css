@@ -557,8 +557,8 @@ input::-webkit-inner-spin-button {
 }
 
 .verifyButton button:disabled {
-  color: #7e888f;
-  background-color: #e4e4e4;
+  color: #527187;
+  background-color: #b0c3d7;
   font-weight: 600;
 }
 
