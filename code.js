@@ -140,9 +140,10 @@ function Message() {
   activateMessage.innerHTML = `<p id="successMessage" class="activeTicket">Bilhete ativo!</p>`;
 }
 
+let code = document.getElementById("ticketCodeVerification").value;
+
 function searchRecharge() {
   let code = document.getElementById("ticketCodeVerification").value;
-  console.log(code);
   let url = `http://localhost:3000/Recarga/${code}`;
 
   axios
@@ -154,28 +155,26 @@ function searchRecharge() {
       alert(error);
       console.log(error);
     });
-  // no html tem que criar uma UL e declarar um id e substituir veiculos pelo novo id
-  const createDinamicList = (Recharge) => {
-    Recharge.map((recharge) => {
-      const ulRecharge = document.getElementById("Recharge");
-      const listRecharge = document.createElement("li"); //em vez disso uma função com switch aqui para guardar as strings no formato certo ou modificar o switch do backend para guardar os dados do jeito que quiser
-      listRecharge.innerHTML = `Recarga ${recharge.tipo}`;
-      ulRecharge.appendChild(listRecharge);
-    });
-  };
-}
 
-//Ativar botão "Ativar" e exibe informações do código atráves da função "visorRecharges()"
-function handleActivateChange() {
-  const codeVerification = document.querySelector(
-    "#ticketCodeVerification"
-  ).value;
-  if (codeVerification) {
-    searchRecharge();
-    document.querySelector("#activateTicketButton").disabled = false;
-  } else {
-    document.querySelector("#activateTicketButton").disabled = true;
-  }
+    console.log(code);
+
+    const createDinamicList = (Recharge) => {
+      Recharge.map((recharge) => {
+        const ulRecharge = document.getElementById("Recharge");
+        const listRecharge = document.createElement("li"); //em vez disso uma função com switch aqui para guardar as strings no formato certo ou modificar o switch do backend para guardar os dados do jeito que quiser
+        listRecharge.innerHTML = `Recarga ${recharge.tipo}`;
+        ulRecharge.appendChild(listRecharge);
+      });
+    }
+
+    if (code) {
+      document.getElementById("box").style.display = "block";
+      document.querySelector("#activateTicketButton").disabled = false;
+    }
+  
+    else {
+      document.querySelector("#activateTicketButton").disabled = true;
+    }
 }
 
 //Função para avisos

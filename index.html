@@ -231,13 +231,13 @@
                         <!--Campo para digitar o código do bilhete-->
                         <input class="code-field-activate" type="number" name="ticketCodeVerification"
                             id="ticketCodeVerification" placeholder="Código do bilhete"
-                            onchange="handleActivateChange()">
+                            onchange="searchRecharge()">
 
                         <!--Botão para ativar uma recarga-->
                         <div id="activateButton" class="not-allowed">
                             <button id="activateTicketButton" type="button" class="button-blue" disabled="true" >
                                 <a class="white-elements">
-                                    Ativar
+                                    Verificar
                                 </a>
                             </button>
                         </div>
@@ -247,8 +247,8 @@
                     </div>
 
                     <!--Print da função "...()" que mostra um dropdown com as recargas do cógico digitado"-->
-                    <div id="backgroundRecharge">
-                        <div id="dropdownRecharge"></div>
+                    <div id="box">
+                        <!--<div id="dropdownRecharge"></div>-->
                         <ul id="Recharge"></ul>
                     </div>
                 </div>

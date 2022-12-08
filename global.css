@@ -503,6 +503,10 @@ input::-webkit-inner-spin-button {
   align-items: baseline;
 }
 
+#box {
+  display: none;
+}
+
 #Recharge {
   list-style: none;
   padding: 1.3rem 2.8rem 1.7rem;
@@ -534,10 +538,6 @@ input::-webkit-inner-spin-button {
 .showRecharges {
   padding: 0;
 }
-
-/*.durationRecharge {
-    
-}*/
 
 .menuRecharge li {
   padding: 0 0.5em 1.7em 0.5em;

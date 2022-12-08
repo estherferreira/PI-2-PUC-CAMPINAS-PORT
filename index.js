@@ -179,7 +179,7 @@ function Recarga(tipo,cdb)//tipo do bilhete e codigo do bilhete como parametro
 			this.valor = 7.2 ;
 		break;
 
-		case 'Bilhete 7 dias - R$14,39':
+		case 'Bilhete 7 dias - R$14,40':
 			console.log('Bilhete escolhido tipo 7dias');
 			this.tipo = '7 Dias';
 			this.valor = 14.4 ;
@@ -193,7 +193,7 @@ function Recarga(tipo,cdb)//tipo do bilhete e codigo do bilhete como parametro
 	}
 
 	this.cdb = cdb;//codigo do bilhete
-	this.datacri = new Date("dd mm yyyy").toLocaleDateString();//data da recarga
+	this.datacri = new Date().toLocaleDateString();//data da recarga"dd mm yyyy"
 	this.horacri = new Date().toLocaleTimeString();//hora da recarga
 	this.cdr = createRandomNumber();//chama a função para criar um numero aleatorio p o codigo da recarga
 }
@@ -204,11 +204,12 @@ function Comunicado (mensagem)
 }
 
 //-------------------------------------------------------------------⬇️Ativação do Bilhete
-function Recharge(cdr,tipo,data)
+function Recharge(tipo)//function Recharge(cdr,tipo,data)
+
 {
-	this.cdr=cdr;
+	//this.cdr=cdr;
 	this.tipo=tipo;
-	this.data=data;
+	//this.data=data;
 }
  
 async function list (req, res)
@@ -230,7 +231,7 @@ async function list (req, res)
 	else
 	{
 		const ret=[];
-		for (i=0;i<rec.length;i++) ret.push (new Recharge (rec[i][0],rec[i][1],rec[i][2]));
+		for (i=0;i<rec.length;i++) ret.push (new Recharge (/*rec[i][0],*/rec[i][1]/*,rec[i][2]*/));
 		return res.status(200).json(ret);
 	}
 } 
@@ -295,32 +296,112 @@ server();
 		}
 		catch (erro)
 		{}
-function recarregaBilhete() {
-  const cdb = document.getElementById("ticketCodeField").value;
-  const tipo = document.querySelector(".selected").innerText;
-  // cdb : codigo do bilhete do usuario
-  // tipo : tipo do bilhete escolhido
-  let objRecarga = { cdb: cdb, tipo: tipo };
-  let url = `http://localhost:3000/Recarga/`;
+
+
+//----------------------------------------------------------AQUI VAI SER A UTILIZAÇÃO 
+function activationRec() {
+  const tipo = document.querySelector(".MUDAR ISSO AQUI").innerText;
+
+  let objAtivacao = { cdr:cdr };
+  let url = `http://localhost:3000/`;
 
   let res = axios
     .post(url, objRecarga)
-    .then((response) => {
-      if (response.data) {
-        showMessageSuccess();
-        const msg = new Comunicado(response.data.mensagem);
-        console.log(msg.get());
-      }
-    })
-    .catch((error) => {
-      if (error.response) {
-        showMessageError();
-        const msg = new Comunicado(error.response.data.mensagem);
-        console.log(msg.get());
-      }
-    });
 }
 
+function activThisShit (bd)//conexão com o bd sendo passada por parametro
+{
+	this.bd = bd;
+	
+	this.inclua = async function (Ativado)//organiza os dados neste comando p/ ser executado no banco de dados  
+	{
+		const sql1 = "INSERT INTO BILHETE VALUES (:0,:1,:2)";
+		const dados = [( parseInt(Bilhete.cdb)),( Bilhete.horacri),( Bilhete.datacri)];
+	
+		console.log(sql1, dados);
+		await conexao.execute(sql1, dados);
 		
+		const sql2 = 'COMMIT';
+		await conexao.execute(sql2);	
+	}	
+}	
+
+function Ativado (id)//adiciona dados como data e hora para ser enviados no comando acima
+{
+	this.cdb = id;//codigo do bilhete 
+	this.datacri = new Date().toLocaleDateString();//data
+	this.horacri = new Date().toLocaleTimeString();//hora
+}	
+
+async function incluAtivado (req, res)
+{
+    const recAtivada = new Ativado (req.body.id);//requisição do codigo do bilhete e passando para a função Bilhete que está logo acima
+    try
+    {
+        await  global.Bilhetes.inclua(recAtivada);//global..é conexão com o banco de dados e inclua é a função que faz o insert
+		console.log('Insert do Bilhete concluído!!!');//insert concluido exibe no terminal a mensagem
+	}
+	catch (err)//pego o erro 
+	{
+		console.log('Erro no incluir');//avisa no terminal que deu erro
+		console.log(err)//exibe no terminal o erro
+    }
+}
+
+
+
+
+//------------------------------------------------------AQUI VAI SER A UTILIZAÇÃO 
+function utilizRec() {
+  const cdb = document.querySelector(".MUDAR ISSO AQUI").innerText;//pegar o numero do bilhete
+
+  let objUtilizar = { cdb:cdb };
+  let url = `http://localhost:3000/`;
+
+  let res = axios
+    .post(url, objUtilizar)
+}
+
+
+
+function UTILIZADOS (bd)//conexão com o bd sendo passada por parametro
+{
+	this.bd = bd;
+	
+	this.inclua = async function (UsedShit)//organiza os dados neste comando p/ ser executado no banco de dados  
+	{
+		const sql1 = "INSERT INTO UTILIZADOS VALUES (:0,:1,:2)";
+		const dados = [( parseInt(Bilhete.cdb)),( Bilhete.horacri),( Bilhete.datacri)];
+	
+		console.log(sql1, dados);
+		await conexao.execute(sql1, dados);
+		
+		const sql2 = 'COMMIT';
+		await conexao.execute(sql2);	
+	}	
+}	
+
+function usedShit (id)//adiciona dados como data e hora para ser enviados no comando acima
+{
+	this.cdb = id;//codigo do bilhete 
+	this.datacri = new Date().toLocaleDateString();//data
+	this.horacri = new Date().toLocaleTimeString();//hora
+}	
+
+async function UseTicket (req, res)
+{
+    const UsedTicked = new usedShit (req.body.id);//requisição do codigo do bilhete e passando para a função Bilhete que está logo acima
+    try
+    {
+        await  global.Bilhetes.inclua(UsedTicked);//global..é conexão com o banco de dados e inclua é a função que faz o insert
+		console.log('Insert da utização concluida!!!');//insert concluido exibe no terminal a mensagem
+	}
+	catch (err)//pego o erro 
+	{
+		console.log('Erro no incluir da utili...');//avisa no terminal que deu erro
+		console.log(err)//exibe no terminal o erro
+    }
+}
+
  */
 
