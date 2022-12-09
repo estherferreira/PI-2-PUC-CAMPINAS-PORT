@@ -278,20 +278,23 @@
 
                     <div class="space-between">
                         <!--Campo para digitar o código do bilhete-->
-                        <input class="code-field-manage" type="number" name="ticketCodeVerification"
-                            id="ticketCodeVerification" placeholder="Código do bilhete">
+                        <input class="code-field-manage" type="number" name="ticketCodeVerificationManage"
+                            id="ticketCodeVerificationManage" placeholder="Código do bilhete" onchange="searchRecharge()">
 
                         <div id="successActivateMessage"></div>
 
                         <!--Botão que disponibiliza o extrato referente ao código de bilhete inserido-->
-                        <div id="activateButton" class="not-allowed">
-                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true">
+                        <div id="manageButton" class="not-allowed">
+                            <button id="manageTicketButton" type="button" class="button-blue" disabled="true">
                                 <a class="white-elements">
                                     Verificar
                                 </a>
                             </button>
-                        </div>
-
+                        </div> 
+                    </div>
+                    <!--Função "searchRecharge()" que mostra um dropdown com o histórico de utilizações"-->
+                    <div id="boxManage">
+                        <ul id="extract"></ul>
                     </div>
                 </div>
                 <div class="registro-de-uso-ilustracao">
