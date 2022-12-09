@@ -144,6 +144,7 @@ let code = document.getElementById("ticketCodeVerification").value;
 
 function searchRecharge() {
   let code = document.getElementById("ticketCodeVerification").value;
+  let codeManager = document.getElementById("ticketCodeVerificationManage").value;
   let url = `http://localhost:3000/Recarga/${code}`;
 
   axios
@@ -174,6 +175,17 @@ function searchRecharge() {
   
     else {
       document.querySelector("#activateTicketButton").disabled = true;
+    }
+
+    console.log(codeManager);
+
+    if (codeManager) {
+      document.getElementById("boxManage").style.display = "block";
+      document.querySelector("#manageTicketButton").disabled = false;
+    }
+  
+    else {
+      document.querySelector("#manageTicketButton").disabled = true;
     }
 }
 
