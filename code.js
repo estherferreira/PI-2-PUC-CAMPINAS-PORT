@@ -177,8 +177,6 @@ function searchRecharge() {
       document.querySelector("#activateTicketButton").disabled = true;
     }
 
-    console.log(codeManager);
-
     if (codeManager) {
       document.getElementById("boxManage").style.display = "block";
       document.querySelector("#manageTicketButton").disabled = false;
