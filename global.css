@@ -350,7 +350,6 @@ header {
   font-weight: 400;
   border-radius: 25px;
   align-items: center;
-  cursor: pointer;
   justify-content: space-between;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 0 0.7rem;
@@ -509,7 +508,7 @@ input::-webkit-inner-spin-button {
 
 #Recharge {
   list-style: none;
-  padding: 1.3rem 2.8rem 1.7rem;
+  padding: 1.3rem 1rem;
   background: rgba(255, 255, 255, 0.6);
   display: block;
   height: 15rem;
@@ -522,18 +521,31 @@ input::-webkit-inner-spin-button {
   overflow-y: scroll;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 #Recharge li {
-  padding: 1rem 0;
+  padding: 1rem;
   font-size: 0.94rem;
+  width: 10em;
 }
 
 #Recharge li:hover{
-    background: #f2f2f2;
+  display: flex;
+  height: 2.82rem;
+  background-color: #d4e3ff83;
+  font-style: normal;
+  align-items: center;
+  justify-content: space-between;
+  color: #001524;
+  cursor: pointer;
 }
 
 #Recharge li.active {
-    background: #f2f2f2;
-  }
+    background: #000;
+  }*/
 
 .showRecharges {
   padding: 0;
