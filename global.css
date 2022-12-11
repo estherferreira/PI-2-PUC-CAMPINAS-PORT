@@ -419,10 +419,6 @@ header {
   background-color: #001524;
 }
 
-.not-allowed button:disabled {
-  cursor: not-allowed;
-}
-
 .success {
   color: #229a00;
   margin: 0.9rem 0rem;
@@ -486,7 +482,7 @@ input::-webkit-inner-spin-button {
   line-height: 2.5;
   font-style: normal;
   display: block;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 #activateButton {
@@ -507,19 +503,79 @@ input::-webkit-inner-spin-button {
   display: none;
 }
 
-#Recharge {
+.drop {
+  width: 18.75rem;
+  position: relative;
+  text-align: left;
+  font-size: 0.94rem;
+}
+
+.selectRecharge {
+  border: 0.06rem solid #001524;
+  display: flex;
+  height: 2.82rem;
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  color: #001524;
+  padding: 0 1.7rem;
+  width: 15.4rem;
+  cursor: pointer;
+}
+
+.caretRecharge {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #001524;
+  transition: 0.3s;
+}
+
+.caretRecharge-rotate {
+  transform: rotate(180deg);
+}
+
+.menuRecharge {
   list-style: none;
-  padding: 1%;
-  background: rgba(255, 255, 255, 0.6);
-  display: block;
+  padding: 0.9em 1.35em;
+  background: #fff;
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
   border-radius: 0.5em;
   color: #001524;
   position: absolute;
+  top: 3.7em;
+  left: 50%;
+  width: 82%;
+  transform: translateX(-61%);
+  opacity: 0;
+  display: none;
   transition: 0.2s;
   z-index: 1;
   overflow-y: scroll;
-  display: none;
+}
+
+.menuRecharge li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.menuRecharge li:hover {
+  background: #f2f2f2;
+}
+
+.activeRecharge {
+  background: #f2f2f2;
+}
+
+.menuRecharge-open {
+  display: block;
+  opacity: 1;
 }
 
 ul {
@@ -527,35 +583,8 @@ ul {
   margin: 0;
 }
 
-#Recharge li {
-  padding: 1rem;
-  font-size: 0.94rem;
-  width: 10em;
-}
-
-#Recharge li:hover{
-  display: flex;
-  height: 2.82rem;
-  background-color: #d4e3ff83;
-  font-style: normal;
-  align-items: center;
-  justify-content: space-between;
-  color: #001524;
-  cursor: pointer;
-}
-
-#Recharge li.active {
-    background: #000;
-  }*/
-
 .showRecharges {
   padding: 0;
-}
-
-.menuRecharge li {
-  padding: 0 0.5em 1.7em 0.5em;
-  border-radius: 0.5em;
-  cursor: pointer;
 }
 
 .activeTicket {
@@ -618,15 +647,16 @@ ul {
   line-height: 2.5;
   font-style: normal;
   display: block;
+  padding: 0 3.5rem;
 }
 
 .registro-de-uso-ilustracao {
   margin: 0 0 -0.2rem;
 }
 
-#extract {
+#ManageHist {
   list-style: none;
-  padding: 1.3rem 2.8rem 1.7rem;
+  padding: 1.8rem 1.8rem 1.7rem;
   background: rgba(255, 255, 255, 0.6);
   display: block;
   height: 20rem;
@@ -641,4 +671,22 @@ ul {
 
 #boxManage {
   display: none;
+}
+
+.time {
+  display: flex;
+}
+
+.options {
+  margin-bottom: 1rem;
+}
+
+.optionsP {
+  font-weight: 600;
+  margin-top: 1.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.optionsPP {
+  font-weight: 600;
 }
