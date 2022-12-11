@@ -213,7 +213,7 @@
         </section>
     </div>
 
-    <!--Seção Ativação-->
+   <!--Seção Ativação-->
     <div id="activate" class="activateContainer">
         <section>
             <div class="activateContent">
@@ -221,21 +221,20 @@
                     <img src="Imagens\trips.png" alt="trips" width="737" height="472">
                 </div>
                 <div class="activateContentTexts">
-                    <span class="main-test blue-elements">Boaa! Agora é só usar o seu bilhete ;)</span>
-                    <p class="text-manage blue-elements">Com o seu código de bilhete que, é único, você pode verificar
-                        todas as suas recargas de forma
-                        simples e rápida — Garanto, melhor parte :)
+                    <span class="main-test blue-elements">Boaa! Agora é ativar e utilizar</span>
+                    <p class="text-manage blue-elements">Você escolhe uma modalidade de recarga, compra e quando for
+                        utilizar é só ativá-la. Assim que ela estiver ativa o tempo da recarga começara a ser
+                        contabilizado. Viu, bem simples!
                     </p>
 
                     <div class="space-between">
                         <!--Campo para digitar o código do bilhete-->
                         <input class="code-field-activate" type="number" name="ticketCodeVerification"
-                            id="ticketCodeVerification" placeholder="Código do bilhete"
-                            onchange="searchRecharge()">
+                            id="ticketCodeVerification" placeholder="Código do bilhete" onchange="searchRecharge()">
 
                         <!--Botão para verificar recargas de um código-->
-                        <div id="activateButton" class="not-allowed">
-                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true">
+                        <div id="activateButton">
+                            <button id="activateTicketButton" type="button" class="button-blue">
                                 <a class="white-elements">
                                     Verificar
                                 </a>
@@ -243,11 +242,10 @@
                         </div>
 
                         <!--Botão para ativar uma recarga-->
-                        <div id="activateButton" class="not-allowed verifyButton">
-                            <button id="activateTicketButton" type="button" class="button-blue" 
-                                onclick="UtiliRec()">
+                        <div class="activateUseButton verifyButton">
+                            <button type="button" class="button-blue" onclick="UtiliRec()">
                                 <a>
-                                    Usar 
+                                    Usar
                                 </a>
                             </button>
                         </div>
@@ -257,14 +255,22 @@
                     </div>
 
                     <!--Print da função "...()" que mostra um dropdown com as recargas do cógico digitado"-->
-                <form>
-                    <select id="Recharge"></select>
-                </form>
+                    <div id="box">
+                        <div class="drop" name="drop" id="drop">
+                            <div class="selectRecharge">
+                                <span class="selectedRecharge">Escolher modalidade</span>
+                                <div class="caretRecharge"></div>
+                            </div>
+                            <ul id="Recharge" class="menuRecharge">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </div>
-        </section>
     </div>
-    
+    </section>
+    </div>
+
     <!--Seção Gerenciamento-->
     <div id="manage" class="manageContainer">
         <section>
@@ -279,26 +285,40 @@
                     <div class="space-between">
                         <!--Campo para digitar o código do bilhete-->
                         <input class="code-field-manage" type="number" name="ticketCodeVerificationManage"
-                            id="ticketCodeVerificationManage" placeholder="Código do bilhete" onchange="searchRecharge()">
+                            id="ticketCodeVerificationManage" placeholder="Código do bilhete"
+                            onchange="searchRecharge()">
 
                         <div id="successActivateMessage"></div>
 
                         <!--Botão que disponibiliza o extrato referente ao código de bilhete inserido-->
-                        <div id="manageButton" class="not-allowed">
-                            <button id="manageTicketButton" onclick="searchHist()" type="button" class="button-blue" disabled="true">
+                        <div id="manageButton">
+                            <button id="manageTicketButton" onclick="searchHist()" type="button" class="button-blue"
+                                disabled="true">
                                 <a class="white-elements">
                                     Verificar
                                 </a>
                             </button>
                         </div>
-                        <div class="ManageHist"><!--Lista de Utilização-->
-                            <ul id="ManageHist">
-                            </ul>
-                        </div> 
                     </div>
                     <!--Função "searchRecharge()" que mostra um dropdown com o histórico de utilizações"-->
-                    <div id="boxManage">
-                        <ul id="extract"></ul>
+                    <div id="boxManage" class="ManageHist">
+                        <ul id="ManageHist">
+                            <!--
+                            <div class="time">
+                            <p class="optionsPP">Data de geração:&ensp;</p><time>11/11/2022</time>
+                            </div>
+                            <p class="optionsP">Datas de recargas</p>
+                            <li class="options"><time>11/11/2022</time> - Bilhete 7 dias</li>
+                            <li class="options"><time>11/11/2022</time> - Bilhete 30 dias</li>
+                            <li class="options"><time>11/11/2022</time> - Bilhete 7 dias</li>
+                            <li class="options"><time>11/11/2022</time> - Bilhete 30 dias</li>
+                            <p class="optionsP">Datas de ativação</p>
+                            <li class="options"><time>11/11/2022</time> - Bilhete 7 dias</li>
+                            <li class="options"><time>11/11/2022</time> - Bilhete 30 dias</li>
+                            <li class="options"><time>11/11/2022</time> - Bilhete 7 dias</li>
+                            <li class="options"><time>11/11/2022</time> - Bilhete 30 dias</li>
+                        -->
+                        </ul>
                     </div>
                 </div>
                 <div class="registro-de-uso-ilustracao">
@@ -308,7 +328,6 @@
             </div>
         </section>
     </div>
-
     <!--Rodapé do site contendo: o simbolo de Copyright, ano e nome do site | Todos os direitos reservados-->
     <footer>
         <p class="white-elements">© 2022 PORT | Todos os direitos reservados</p>
