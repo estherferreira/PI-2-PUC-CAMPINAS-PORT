@@ -143,11 +143,42 @@ function Message() {
   let activateMessage = document.getElementById("successActivateMessage");
   activateMessage.innerHTML = `<p id="successMessage" class="activeTicket">Bilhete Expirado!</p>`;
 }
+
 let code = document.getElementById("ticketCodeVerification").value;
+
+const drops = document.querySelectorAll(".drop");
+drops.forEach((drop) => {
+  const selectRecharge = drop.querySelector(".selectRecharge");
+  const caretRecharge = drop.querySelector(".caretRecharge");
+  const menuRecharge = drop.querySelector(".menuRecharge");
+  const optionsRecharge = drop.querySelectorAll(".menuRecharge li");
+  const selectedRecharge = drop.querySelector(".selectedRecharge");
+
+  selectRecharge.addEventListener("click", () => {
+    selectRecharge.classList.toggle("selectRecharge-clicked");
+    caretRecharge.classList.toggle("caretRecharge-rotate");
+    menuRecharge.classList.toggle("menuRecharge-open");
+  });
+
+  optionsRecharge.forEach((option) => {
+    option.addEventListener("click", () => {
+      selectedRecharge.innerText = option.innerText;
+      selectRecharge.classList.remove("selectRecharge-clicked");
+      caretRecharge.classList.remove("caretRecharge-rotate");
+      menuRecharge.classList.remove("menuRecharge-open");
+      optionsRecharge.forEach((option) => {
+        option.classList.remove("activeRecharge");
+      });
+      option.classList.add("activeRecharge");
+    });
+  });
+});
 
 function searchRecharge() {
   let code = document.getElementById("ticketCodeVerification").value;
   let codeManager = document.getElementById("ticketCodeVerificationManage").value;
+  let activateTicket = document.querySelector("#activateTicketButton").disabled = true;
+  let manageTicket = document.querySelector("#manageTicketButton").disabled = true;
   let url = `http://localhost:3000/Recarga/${code}`;
 
   axios
@@ -160,34 +191,44 @@ function searchRecharge() {
       console.log(error);
     });
 
-    const createDinamicList = (Recharge) => {
-      Recharge.map((recharge) => {
-        const ulRecharge = document.getElementById("Recharge");
-        const listRecharge = document.createElement("option");
-        listRecharge.innerHTML =`${recharge.cdr} - Recarga ${recharge.tipo}`;
-        ulRecharge.appendChild(listRecharge);
-        document.getElementById("Recharge").style.display = "block";
+  const createDinamicList = (Recharge) => {
+    Recharge.map((recharge) => {
+      const ulRecharge = document.getElementById("Recharge");
+      const listRecharge = document.createElement("li");
+      listRecharge.innerHTML = `${recharge.cdr} - Recarga ${recharge.tipo}`;
+      ulRecharge.appendChild(listRecharge);
+    });
+  }
+  if (code) {
+    activateTicket = document.querySelector("#activateTicketButton").disabled = false;
+    console.log(activateTicket);
+    if (activateTicket == false) {
+      activateTicket = document.querySelector("#activateTicketButton");
+      activateTicket.addEventListener("click", () => {
+        document.getElementById("box").style.display = "block";
       });
     }
+  }
 
-    if (code) {
-      document.querySelector("#activateTicketButton").disabled = false;
-    }
-  
-    else {
-      document.querySelector("#activateTicketButton").disabled = true;
-    }
+  else {
+    document.querySelector("#activateTicketButton").disabled = true;
+  }
 
-    if (codeManager) {
-      document.getElementById("boxManage").style.display = "block";
-      document.querySelector("#manageTicketButton").disabled = false;
+  if (codeManager) {
+    manageTicket = document.querySelector("#manageTicketButton").disabled = false;
+    console.log(manageTicket);
+    if (manageTicket == false) {
+      manageTicket = document.querySelector("#manageTicketButton");
+      manageTicket.addEventListener("click", () => {
+        document.getElementById("boxManage").style.display = "block";
+      });
     }
-  
-    else {
-      document.querySelector("#manageTicketButton").disabled = true;
-    }
+  }
+
+  else {
+    document.querySelector("#manageTicketButton").disabled = true;
+  }
 }
-
  function UtiliRec() {
   const codRec = document.getElementById("Recharge").value;
   const cdb = document.getElementById("ticketCodeVerification").value; 
