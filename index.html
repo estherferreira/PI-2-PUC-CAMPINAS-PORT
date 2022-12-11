@@ -221,7 +221,7 @@
                     <img src="Imagens\trips.png" alt="trips" width="737" height="472">
                 </div>
                 <div class="activateContentTexts">
-                    <span class="main-test blue-elements">Boaa! Agora é só ativar seu bilhete ;)</span>
+                    <span class="main-test blue-elements">Boaa! Agora é só usar o seu bilhete ;)</span>
                     <p class="text-manage blue-elements">Com o seu código de bilhete que, é único, você pode verificar
                         todas as suas recargas de forma
                         simples e rápida — Garanto, melhor parte :)
@@ -244,10 +244,10 @@
 
                         <!--Botão para ativar uma recarga-->
                         <div id="activateButton" class="not-allowed verifyButton">
-                            <button id="activateTicketButton" type="button" class="button-blue" disabled="true"
-                                onclick="Message()">
+                            <button id="activateTicketButton" type="button" class="button-blue" 
+                                onclick="UtiliRec()">
                                 <a>
-                                    Ativar
+                                    Usar 
                                 </a>
                             </button>
                         </div>
@@ -257,10 +257,10 @@
                     </div>
 
                     <!--Print da função "...()" que mostra um dropdown com as recargas do cógico digitado"-->
-                    <div id="box">
-                        <ul id="Recharge"></ul>
-                    </div>
-                </div>
+                <form>
+                    <select id="Recharge"></select>
+                </form>
+            </div>
             </div>
         </section>
     </div>
@@ -285,11 +285,15 @@
 
                         <!--Botão que disponibiliza o extrato referente ao código de bilhete inserido-->
                         <div id="manageButton" class="not-allowed">
-                            <button id="manageTicketButton" type="button" class="button-blue" disabled="true">
+                            <button id="manageTicketButton" onclick="searchHist()" type="button" class="button-blue" disabled="true">
                                 <a class="white-elements">
                                     Verificar
                                 </a>
                             </button>
+                        </div>
+                        <div class="ManageHist"><!--Lista de Utilização-->
+                            <ul id="ManageHist">
+                            </ul>
                         </div> 
                     </div>
                     <!--Função "searchRecharge()" que mostra um dropdown com o histórico de utilizações"-->

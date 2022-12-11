@@ -49,7 +49,18 @@ function banco_de_dados ()
 			'VALOR_RECARGA NUMBER(5, 2), FK_ID_BILHETE NUMBER (6, 0),'+
 			'FOREIGN KEY (FK_ID_BILHETE) REFERENCES BILHETE (ID_USUARIO_BILHETE))';
 			await conexao.execute(sqlr);
-			console.log('Tabela criada Recarga!')
+			console.log('Tabela criada Recarga!');
+		}
+		catch (erro)
+		{}
+
+		try//-------Cria a tabela de utilização se não existir
+		{
+			const conexao = await this.getConexao();
+			const sqlr9    = 'CREATE TABLE UTILIZACAO(COD_UTILIZACAO NUMBER(6, 0) CONSTRAINT UTILIZACAO_PK PRIMARY KEY,'+
+			'COD_RECARGA NUMBER (6, 0), DATA_UTILIZACAO DATE, DATA_VENCIMENTO DATE, FK_ID_BILHETE NUMBER (6, 0))';
+			await conexao.execute(sqlr9);
+			console.log('Tabela utilização criada');
 		}
 		catch (erro)
 		{}
@@ -129,11 +140,9 @@ function RECARGA (bd)
 	{
 		const conexao = await this.bd.getConexao();
 		
-		const sql = "SELECT COD_RECARGA,TIPO,TO_CHAR(DATA_RECARGA, 'DD/MM/YYYY') "+
-		            "FROM RECARGA WHERE FK_ID_BILHETE=:0";
+		const sql = "SELECT COD_RECARGA,TIPO FROM RECARGA WHERE FK_ID_BILHETE=:0";
 		const dados = [code];
 		ret =  await conexao.execute(sql,dados);
-		
 		return ret.rows;
 	}
 }
@@ -204,14 +213,13 @@ function Comunicado (mensagem)
 }
 
 //-------------------------------------------------------------------⬇️Ativação do Bilhete
-function Recharge(tipo)//function Recharge(cdr,tipo,data)
-
+function Recharge(cdr,tipo)//function Recharge(cdr,tipo,data)
 {
-	//this.cdr=cdr;
+	this.cdr=cdr;
 	this.tipo=tipo;
-	//this.data=data;
 }
  
+//-------------------------------------------------------------------⬇️Cria a lista de recargas no front
 async function list (req, res)
 {
 	const code = req.params.code;
@@ -231,10 +239,117 @@ async function list (req, res)
 	else
 	{
 		const ret=[];
-		for (i=0;i<rec.length;i++) ret.push (new Recharge (/*rec[i][0],*/rec[i][1]/*,rec[i][2]*/));
+		for (i=0;i<rec.length;i++) ret.push (new Recharge (rec[i][0],rec[i][1]));
 		return res.status(200).json(ret);
 	}
 } 
+
+//--------------------------------------------------------------------
+function ATIVADOS (bd)//conexão com o bd sendo passada por parametro
+{
+	this.bd = bd;
+	
+	this.inUtiliz = async function (Ativado)//organiza os dados neste comando p/ ser executado no banco de dados  
+	{
+		const sql1 = "INSERT INTO UTILIZACAO VALUES (:0,:1,:2,:3,:4)";
+		const dados = [(Ativado.cdu),( parseInt(Ativado.cdr)),( Ativado.dataU),(Ativado.dataV),(parseInt(Ativado.cdb))];
+	
+		console.log(sql1, dados);
+		await conexao.execute(sql1, dados);
+		const sql2 = 'COMMIT';
+		await conexao.execute(sql2);	
+	}	
+	this.ExisteAtivacao = async function (code)
+	{
+		const conexao = await this.bd.getConexao();
+		
+		const sql = "SELECT DATA_VENCIMENTO FROM UTILIZACAO WHERE COD_RECARGA=:0";
+		const dados = [code];
+		ret =  await conexao.execute(sql,dados);
+		
+		return ret.rows;
+	}
+}	
+
+function Ativado (cdb,cdr,tipo)//adiciona dados como data e hora para ser enviados no comando acima
+{
+	this.cdu = createRandomNumber();
+	this.cdb = cdb;//codigo do bilhete 
+	this.dataU = new Date();
+	
+	this.cdr = cdr;
+	switch(tipo)
+	{
+		case'Unico':  const data=new Date;
+					  this.dataV = data.setMinutes(data.getMinutes()+40);
+		break;
+		case'Duplo':   const data1=new Date;
+		this.dataV = data1.setMinutes(data1.getMinutes()+80);
+		break;
+		case'7dias':   const data2=new Date;
+		this.dataV = data2.setDate(data2.getDate()+7);
+		break;
+		case'30dias':   const data3=new Date;
+		this.dataV = data3.setMonth(data3.getMonth()+1);
+		break;
+		default: console.log('Erro no switch da Utilização');
+		break;
+	}
+	console.log(tipo);
+}	
+
+async function incluAtivado (req, res)
+{
+	const coderec = parseInt(req.body.cdr);
+	
+    let rec;
+	try
+	{
+	    rec = await global.UseRecharge.ExisteAtivacao(coderec);
+	}    
+    catch(erro)
+    {}
+
+	if (rec.length==0)
+	{
+		const recAtivada = new Ativado (req.body.cdb,req.body.cdr,req.body.tipo);//requisição do codigo do bilhete e passando para a função Bilhete que está logo acima
+		try
+		{
+			await global.UseRecharge.inUtiliz(recAtivada);//global..é conexão com o banco de dados e inclua é a função que faz o insert
+			console.log('Insert do Bilhete concluído!!!');//insert concluido exibe no terminal a mensagem
+			res.status(200).json('Recarga Ativa!');
+		}
+		catch (err)//pego o erro 
+		{
+			console.log('Erro no incluir da ativação');//avisa no terminal que deu erro
+			console.log(err)//exibe no terminal o erro
+		}
+	}
+	else
+	{
+		const dataAtual = new Date();
+		const ret=[];
+		let i=0;
+		const dataVencimento = ret.push ((rec[i][3]));
+		console.log('Data atual->'+dataAtual,'Data de vencimento->'+dataVencimento);
+		if(dataAtual.getTime()<dataVencimento.getTime()){
+		    const recAtivada = new Ativado (req.body.cdb,req.body.cdr,req.body.tipo);//requisição do codigo do bilhete e passando para a função Bilhete que está logo acima
+			try
+			{
+				await  global.UseRecharge.inUtiliz(recAtivada);//global..é conexão com o banco de dados e inclua é a função que faz o insert
+				console.log('Insert do Bilhete concluído!!!');//insert concluido exibe no terminal a mensagem
+				res.status(200).json('Recarga Ativa!');
+			}
+			catch (err)//pego o erro 
+			{
+				console.log('Erro no incluir');//avisa no terminal que deu erro
+				console.log(err)//exibe no terminal o erro
+			}	
+		}else{
+			res.status(409).json('Recarga Expirada!');
+		}
+	}
+}
 
 //-------------------------------------------------------------------------------⬇️ Servidor
 async function server ()
@@ -243,6 +358,7 @@ async function server ()
 	await bd.estrutureSe();
     global.Bilhetes = new BILHETE (bd);
 	global.Recargas = new RECARGA (bd);
+	global.UseRecharge = new ATIVADOS(bd);
 
     const express = require('express');
     const app = express();
@@ -263,145 +379,63 @@ async function server ()
     app.post  ('/Bilhete'       , inclusao); 
 	app.post  ('/Recarga'       , inclusaoRec);
 	app.get   ('/Recarga/:code' , list);
+	app.post  ('/Utilizar'       , incluAtivado);
+	//	app.get   ('/Gerenciamento/:cdb' , função);
 
     console.log ('Servidor ativo na porta 3000');
     app.listen(3000);
 }
 server();
-//--------------------------------------------------------------------------------------------------------------------
+
+
+
+/*passar o tipo do bilhete para o back e fzr de tempo */
+
+
+
+
+//--------Preciso fazer as funções de gerenciamento
+
+
+
 /*
 
-        //cria tabela ativação 
-		try
-		{
-			const conexao = await this.getConexao();
-			const sqlr    = 'CREATE TABLE ATIVACAO(COD_ATIVACAO NUMBER(6, 0) CONSTRAINT ATIVACAO_PK PRIMARY KEY,'+
-			'TIPO VARCHAR2(20), DATA_ATIVACAO DATE,  HORA_ATIVACAO VARCHAR2(8),'+
-			'VALOR_ATIVACAO NUMBER(5, 2), FK_ID_BILHETE NUMBER (6, 0),'+
-			'FOREIGN KEY (FK_ID_BILHETE) REFERENCES BILHETE (ID_USUARIO_BILHETE))';
-			await conexao.execute(sqlr);
-			console.log('Tabela criada ativação!')
-		}
-		catch (erro)
-		{}
-
-		try
-		{
-			const conexao = await this.getConexao();
-			const sqlr    = 'CREATE TABLE UTILIZACAO(COD_UTILIZACAO NUMBER(6, 0) CONSTRAINT UTILIZACAO_PK PRIMARY KEY,'+
-			'TIPO VARCHAR2(20), DATA_UTILIZACAO DATE,  HORA_UTILIZACAO VARCHAR2(8),'+
-			'VALOR_UTILIZACAO NUMBER(5, 2), FK_ID_BILHETE NUMBER (6, 0))';
-			await conexao.execute(sqlr);
-			console.log('Tabela criada de utilização!')
-		}
-		catch (erro)
-		{}
 
 
-//----------------------------------------------------------AQUI VAI SER A UTILIZAÇÃO 
-function activationRec() {
-  const tipo = document.querySelector(".MUDAR ISSO AQUI").innerText;
 
-  let objAtivacao = { cdr:cdr };
-  let url = `http://localhost:3000/`;
-
-  let res = axios
-    .post(url, objRecarga)
-}
-
-function activThisShit (bd)//conexão com o bd sendo passada por parametro
-{
-	this.bd = bd;
-	
-	this.inclua = async function (Ativado)//organiza os dados neste comando p/ ser executado no banco de dados  
+  this.recupereUm = async function (code)
 	{
-		const sql1 = "INSERT INTO BILHETE VALUES (:0,:1,:2)";
-		const dados = [( parseInt(Bilhete.cdb)),( Bilhete.horacri),( Bilhete.datacri)];
-	
-		console.log(sql1, dados);
-		await conexao.execute(sql1, dados);
+		const conexao = await this.bd.getConexao();
 		
-		const sql2 = 'COMMIT';
-		await conexao.execute(sql2);	
-	}	
-}	
-
-function Ativado (id)//adiciona dados como data e hora para ser enviados no comando acima
-{
-	this.cdb = id;//codigo do bilhete 
-	this.datacri = new Date().toLocaleDateString();//data
-	this.horacri = new Date().toLocaleTimeString();//hora
-}	
-
-async function incluAtivado (req, res)
-{
-    const recAtivada = new Ativado (req.body.id);//requisição do codigo do bilhete e passando para a função Bilhete que está logo acima
-    try
-    {
-        await  global.Bilhetes.inclua(recAtivada);//global..é conexão com o banco de dados e inclua é a função que faz o insert
-		console.log('Insert do Bilhete concluído!!!');//insert concluido exibe no terminal a mensagem
+		const sql = "SELECT COD_RECARGA,TIPO FROM RECARGA WHERE FK_ID_BILHETE=:0";
+		const dados = [code];
+		ret =  await conexao.execute(sql,dados);
+		return ret.rows;
 	}
-	catch (err)//pego o erro 
+
+
+async function list (req, res)
+{
+	const code = req.params.code;
+
+    let rec;
+	try
 	{
-		console.log('Erro no incluir');//avisa no terminal que deu erro
-		console.log(err)//exibe no terminal o erro
-    }
-}
+	    rec = await global.Recargas.recupereUm(code);
+	}    
+    catch(erro)
+    {}
 
-
-
-
-//------------------------------------------------------AQUI VAI SER A UTILIZAÇÃO 
-function utilizRec() {
-  const cdb = document.querySelector(".MUDAR ISSO AQUI").innerText;//pegar o numero do bilhete
-
-  let objUtilizar = { cdb:cdb };
-  let url = `http://localhost:3000/`;
-
-  let res = axios
-    .post(url, objUtilizar)
-}
-
-
-
-function UTILIZADOS (bd)//conexão com o bd sendo passada por parametro
-{
-	this.bd = bd;
-	
-	this.inclua = async function (UsedShit)//organiza os dados neste comando p/ ser executado no banco de dados  
+	if (rec.length==0)
 	{
-		const sql1 = "INSERT INTO UTILIZADOS VALUES (:0,:1,:2)";
-		const dados = [( parseInt(Bilhete.cdb)),( Bilhete.horacri),( Bilhete.datacri)];
-	
-		console.log(sql1, dados);
-		await conexao.execute(sql1, dados);
-		
-		const sql2 = 'COMMIT';
-		await conexao.execute(sql2);	
-	}	
-}	
-
-function usedShit (id)//adiciona dados como data e hora para ser enviados no comando acima
-{
-	this.cdb = id;//codigo do bilhete 
-	this.datacri = new Date().toLocaleDateString();//data
-	this.horacri = new Date().toLocaleTimeString();//hora
-}	
-
-async function UseTicket (req, res)
-{
-    const UsedTicked = new usedShit (req.body.id);//requisição do codigo do bilhete e passando para a função Bilhete que está logo acima
-    try
-    {
-        await  global.Bilhetes.inclua(UsedTicked);//global..é conexão com o banco de dados e inclua é a função que faz o insert
-		console.log('Insert da utização concluida!!!');//insert concluido exibe no terminal a mensagem
+		return res.status(200).json([]);
 	}
-	catch (err)//pego o erro 
+	else
 	{
-		console.log('Erro no incluir da utili...');//avisa no terminal que deu erro
-		console.log(err)//exibe no terminal o erro
-    }
-}
+		const ret=[];
+		for (i=0;i<rec.length;i++) ret.push (new Recharge (rec[i][0],rec[i][1]));
+		return res.status(200).json(ret);
+	}
+} 
 
- */
-
+*/

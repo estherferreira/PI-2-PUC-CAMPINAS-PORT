@@ -139,7 +139,10 @@ function Message() {
   let activateMessage = document.getElementById("successActivateMessage");
   activateMessage.innerHTML = `<p id="successMessage" class="activeTicket">Bilhete ativo!</p>`;
 }
-
+function Message() {
+  let activateMessage = document.getElementById("successActivateMessage");
+  activateMessage.innerHTML = `<p id="successMessage" class="activeTicket">Bilhete Expirado!</p>`;
+}
 let code = document.getElementById("ticketCodeVerification").value;
 
 function searchRecharge() {
@@ -157,19 +160,17 @@ function searchRecharge() {
       console.log(error);
     });
 
-    console.log(code);
-
     const createDinamicList = (Recharge) => {
       Recharge.map((recharge) => {
         const ulRecharge = document.getElementById("Recharge");
-        const listRecharge = document.createElement("li"); //em vez disso uma função com switch aqui para guardar as strings no formato certo ou modificar o switch do backend para guardar os dados do jeito que quiser
-        listRecharge.innerHTML = `Recarga ${recharge.tipo}`;
+        const listRecharge = document.createElement("option");
+        listRecharge.innerHTML =`${recharge.cdr} - Recarga ${recharge.tipo}`;
         ulRecharge.appendChild(listRecharge);
+        document.getElementById("Recharge").style.display = "block";
       });
     }
 
     if (code) {
-      document.getElementById("box").style.display = "block";
       document.querySelector("#activateTicketButton").disabled = false;
     }
   
@@ -187,10 +188,62 @@ function searchRecharge() {
     }
 }
 
+ function UtiliRec() {
+  const codRec = document.getElementById("Recharge").value;
+  const cdb = document.getElementById("ticketCodeVerification").value; 
+  const cdr = parseInt(codRec.substr(0,6));
+  const tip = codRec.substr(17,);
+  console.log(tip);
+  console.log(cdr);
+  let objUsed = { cdr:cdr, cdb:cdb , tipo:tip};
+  let url = `http://localhost:3000/Utilizar`;
+
+  let res = axios
+  .post(url, objUsed)
+  .then((response) => {
+    if (response.data) {
+      Message();
+      const msg = new Comunicado(response.data.mensagem);
+      console.log(msg.get());
+    }
+  })
+  .catch((error) => {
+    if (error.response) {
+      Message();
+      const msg = new Comunicado(error.response.data.mensagem);
+      console.log(msg.get());
+    }
+  });
+}
 //Função para avisos
 function Comunicado(mensagem) {
   this.mensagem = mensagem;
   this.get = function () {
     return this.mensagem;
   };
+}
+
+//Gerenciamento
+
+function searchHist() {
+  const cdb = document.getElementById("ticketCodeVerificationManage").value;
+  let url = `http://localhost:3000/Gerenciamento/${cdb}`;
+
+  axios
+  .get(url)
+  .then((response) => {
+    createlistaGerenciamento(response.data);
+  })
+  .catch((error) => {
+    alert(error);
+    console.log(error);
+  });
+    const createlistaGerenciamento = (Utilizados) => {
+      Utilizados.map((utiizados) => {
+        const ulHistor = document.getElementById("ManageHist");
+        const listHistor = document.createElement("option"); 
+        listHistor.innerHTML =`${utiizados.cdr} - Recarga ${utiizados.tipo}`;
+        ulHistor.appendChild(listHistor);
+      });
+    }
 }
